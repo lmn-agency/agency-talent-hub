@@ -1,0 +1,233 @@
+/**
+ * ===================================================================
+ * LMN AGENCY / LMN CREATORS - SISTEMA DE DISEÑO OFICIAL
+ * Basado en la guía de marca y tipografía de: assets/Roster LMN.pdf
+ * Integrado con las directrices de UX y accesibilidad de skills/skill_ux.md
+ * ===================================================================
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+:root {
+  /* =======================================================
+   * PALETA DE COLOR OFICIAL (Extraída de Roster LMN.pdf)
+   * ======================================================= */
+  /* Fondo principal cinematográfico cálido (Deep Warm Noir / Espresso) */
+  --color-bg-primary: #0D0C0B;
+  --color-bg-secondary: #141311;
+  --color-bg-card: #181614;
+  --color-bg-card-hover: #211E1B;
+  --color-bg-surface: #2A2723;
+
+  /* Fondo crema / arena editorial (Slide 7 - Contacto del PDF) */
+  --color-sand: #ECE7DE;
+  --color-sand-light: #F7F5F0;
+  --color-sand-muted: #D1C9BE;
+  --color-sand-dark: #2E2922;
+
+  /* Textos y contraste */
+  --color-text-white: #FFFFFF;
+  --color-text-primary: #F4EFEA;
+  --color-text-secondary: #C8C2B8;
+  --color-text-muted: #8E877C;
+  --color-text-dark: #0D0C0B;
+
+  /* Acentos y detalles dorados sutiles */
+  --color-gold: #D6A85B;
+  --color-gold-light: #F2D8A8;
+  --color-gold-dark: #9E7428;
+  --color-gold-glow: rgba(214, 168, 91, 0.15);
+
+  /* Bordes de precisión estilo Roster LMN */
+  --border-subtle: rgba(255, 255, 255, 0.10);
+  --border-card: rgba(255, 255, 255, 0.16);
+  --border-strong: rgba(255, 255, 255, 0.35);
+  --border-gold: rgba(214, 168, 91, 0.30);
+
+  /* Tipografías */
+  --font-brand-serif: 'Cinzel', Georgia, 'Times New Roman', serif;
+  --font-brand-sans: 'Montserrat', 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Plus Jakarta Sans', 'Montserrat', sans-serif;
+}
+
+/* =======================================================
+ * REGLAS GLOBALES Y ACCESIBILIDAD (skill_ux.md)
+ * ======================================================= */
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Visible Focus Rings (Regla a11y #2 de skill_ux.md) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-gold) !important;
+  outline-offset: 2px !important;
+}
+
+/* Image Outlines puros sin tintes extraños (Regla Surfaces #8 de skill_ux.md) */
+.img-outline,
+img.lmn-img {
+  outline: 1px solid oklch(1 0 0 / 0.12);
+  outline-offset: -1px;
+}
+
+/* Números tabulares para evitar saltos en métricas (skill_ux.md) */
+.tabular-numbers,
+.lmn-stat-number {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Scale on Press táctil exacto a 0.96 (skill_ux.md) */
+.btn-press,
+.lmn-btn {
+  transition-property: transform, background-color, border-color, box-shadow, color, opacity;
+  transition-duration: 150ms;
+  transition-timing-function: ease-out;
+}
+
+.btn-press:active,
+.lmn-btn:active {
+  transform: scale(0.96);
+}
+
+/* Respeto a usuarios con prefers-reduced-motion (skill_ux.md) */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =======================================================
+ * COMPONENTES DE IDENTIDAD LMN CREATORS (Roster LMN.pdf)
+ * ======================================================= */
+
+/* Logotipo LMN CREATORS de alto contraste */
+.lmn-brand-mark {
+  font-family: var(--font-brand-serif);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-text-white);
+  line-height: 1;
+}
+
+.lmn-brand-subtitle {
+  font-family: var(--font-brand-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+/* Subtítulos de categorías y nichos (estilo CLAUDIA ZEPEDA / LIFESTYLE & FITNESS) */
+.lmn-category-track {
+  font-family: var(--font-brand-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+/* Línea divisoria de sección con encabezado (REDES SOCIALES —————————) */
+.lmn-header-line {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.lmn-header-line::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: var(--border-strong);
+}
+
+/* =======================================================
+ * CAJAS DE MÉTRICAS REDES SOCIALES (Inspirado en el PDF)
+ * ======================================================= */
+.lmn-social-pill {
+  border: 1px solid var(--border-strong);
+  background: rgba(24, 22, 20, 0.7);
+  backdrop-filter: blur(8px);
+  border-radius: 1.25rem;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.lmn-social-pill:hover {
+  border-color: var(--color-gold);
+  transform: translateY(-2px);
+}
+
+.lmn-social-divider {
+  width: 1px;
+  height: 38px;
+  background-color: var(--border-strong);
+}
+
+/* =======================================================
+ * TARJETAS Y CONTENEDORES EDITORIALES
+ * ======================================================= */
+.lmn-card {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 1rem;
+  transition: transform 0.2s ease-out, border-color 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.lmn-card:hover {
+  border-color: var(--border-gold);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.7);
+}
+
+/* Glow ambiental para el fondo cálido */
+.lmn-glow {
+  background: radial-gradient(circle at 50% 0%, rgba(214, 168, 91, 0.08) 0%, transparent 70%);
+}
+
+/* =======================================================
+ * ESTILOS DE IMPRESIÓN PARA COMP CARD Y MEDIA KIT
+ * ======================================================= */
+@media print {
+  body {
+    background-color: #FFFFFF !important;
+    color: #111827 !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-card {
+    border: 1px solid #D1D5DB !important;
+    background: #FFFFFF !important;
+    color: #111827 !important;
+    break-inside: avoid;
+    box-shadow: none !important;
+  }
+
+  .lmn-social-pill {
+    border: 1px solid #9CA3AF !important;
+    background: transparent !important;
+    color: #000000 !important;
+  }
+}

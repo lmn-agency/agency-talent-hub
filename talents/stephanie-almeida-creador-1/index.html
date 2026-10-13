@@ -18,10 +18,12 @@
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
 
-  <!-- Google Fonts: Plus Jakarta Sans & Playfair Display -->
+  <!-- Conexión de Fuentes Oficiales (Cinzel, Montserrat, Plus Jakarta Sans) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+  <!-- Hoja de Estilos Externa Oficial (LMN Design System desde assets/css/style.css) -->
+  <link rel="stylesheet" href="../../assets/css/style.css">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -29,107 +31,33 @@
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Tailwind Configuration -->
+  <!-- Tailwind Configuration sincronizada con Roster LMN.pdf -->
   <script>
     tailwind.config = {
       darkMode: 'class',
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', '"Montserrat"', 'sans-serif'],
+            serif: ['"Cinzel"', '"Playfair Display"', 'Georgia', 'serif'],
+            brand: ['"Cinzel"', 'serif'],
+            track: ['"Montserrat"', 'sans-serif']
           },
           colors: {
             brand: {
-              gold: '#D4AF37',
-              goldLight: '#F3E5AB',
-              goldDark: '#997E24',
-              accent: '#E5A93C',
-              dark: '#0A0C10',
-              card: '#121620',
-              surface: '#1A1F2C',
-              border: 'rgba(255, 255, 255, 0.08)'
+              gold: '#D6A85B',
+              goldLight: '#F2D8A8',
+              goldDark: '#9E7428',
+              dark: '#0D0C0B',
+              card: '#181614',
+              surface: '#201E1B',
+              sand: '#ECE7DE'
             }
           }
         }
       }
     };
   </script>
-
-  <style>
-    /* Reglas esenciales de UX basadas en skills/skill_ux.md */
-    :root {
-      color-scheme: dark;
-    }
-
-    body {
-      background-color: #0A0C10;
-      color: #E2E8F0;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      text-rendering: optimizeLegibility;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Enfoque accesible visible (Regla: Visible Focus Rings de skill_ux.md) */
-    a:focus-visible,
-    button:focus-visible,
-    input:focus-visible {
-      outline: 2px solid #E5A93C !important;
-      outline-offset: 2px !important;
-    }
-
-    /* Outlines puros para imágenes (Regla Image Outlines: pure white 10% en dark mode de skill_ux.md) */
-    .img-outline {
-      outline: 1px solid oklch(1 0 0 / 0.12);
-      outline-offset: -1px;
-    }
-
-    /* Tabular numbers para métricas (Regla Typography #7: Tabular Numbers de skill_ux.md) */
-    .tabular-numbers {
-      font-variant-numeric: tabular-nums;
-    }
-
-    /* Efecto Scale on Press sutil de skill_ux.md (scale 0.96 exacto con transición explícita) */
-    .btn-press {
-      transition-property: transform, background-color, border-color, box-shadow, opacity;
-      transition-duration: 150ms;
-      transition-timing-function: ease-out;
-    }
-    .btn-press:active {
-      transform: scale(0.96);
-    }
-
-    /* Respeto a prefers-reduced-motion de skill_ux.md */
-    @media (prefers-reduced-motion: reduce) {
-      *, ::before, ::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-      }
-    }
-
-    /* Estilos de impresión para Comp Card (Ficha de Casting Imprimible) */
-    @media print {
-      body {
-        background-color: #FFFFFF !important;
-        color: #111827 !important;
-      }
-      .no-print {
-        display: none !important;
-      }
-      .print-card {
-        border: 1px solid #E5E7EB !important;
-        background: #FFFFFF !important;
-        color: #111827 !important;
-        break-inside: avoid;
-        box-shadow: none !important;
-      }
-      .print-black {
-        color: #000000 !important;
-      }
-    }
-  </style>
 </head>
 <body class="min-h-screen selection:bg-amber-500/30 selection:text-amber-200">
 
@@ -599,11 +527,12 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
       
       <div class="flex items-center gap-3">
-        <a href="../../index.html" class="font-serif text-base font-bold text-white hover:text-amber-400">
-          LMN Agency
+        <a href="../../index.html" class="flex items-center gap-2 text-white hover:text-amber-400">
+          <span class="lmn-brand-mark text-lg font-bold">LMN</span>
+          <span class="lmn-brand-subtitle text-[9px] text-zinc-400">CREATORS</span>
         </a>
-        <span>•</span>
-        <span>Talent Management & Casting Hub</span>
+        <span class="text-zinc-600">•</span>
+        <span class="text-zinc-400 font-medium">Talent Management & Casting Hub</span>
       </div>
 
       <div class="text-center md:text-right space-y-1">
@@ -695,11 +624,11 @@
       whatsappNumber: "5215500000000", // Reemplazar con el número oficial de LMN Agency
       whatsappMessage: "Hola LMN Agency, me gustaría consultar disponibilidad y tarifas para Stephanie Almeida.",
 
-      // 3. Métricas Clave
+      // 3. Métricas Clave (Sincronizadas con 10/2026)
       metrics: {
-        totalFollowers: "850K+",
-        monthlyViews: "4.2M",
-        engagementRate: "6.8%",
+        totalFollowers: "19.2K+",
+        monthlyViews: "34.4K",
+        engagementRate: "11.1%",
         primaryPlatforms: "TikTok • Instagram • YouTube Shorts"
       },
 
