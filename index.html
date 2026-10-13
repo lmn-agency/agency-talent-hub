@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LMN Agency | Talent & Cinematic Management | Roster Oficial</title>
+  <meta name="description" content="LMN Agency representa en exclusiva a creadores de alto impacto y actores de nueva generación para producciones cinematográficas, series y campañas de gran escala.">
+  <meta name="keywords" content="LMN Agency, talent agency, representación artística, casting México, creadores de contenido, ficción, cine, comedia, media kits, EPK">
+  <meta name="author" content="LMN Agency">
+
+  <!-- Open Graph / Meta Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="LMN Agency | Talent & Cinematic Management">
+  <meta property="og:description" content="Donde la ficción y la influencia digital convergen. Catálogo oficial de talentos exclusivos y activaciones cinematográficas.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=80">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+          },
+          colors: {
+            brand: {
+              gold: '#D4AF37',
+              goldLight: '#F3E5AB',
+              accent: '#E5A93C',
+              dark: '#08090C',
+              card: '#12151D',
+              surface: '#181C26'
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Reglas esenciales de UX basadas en skills/skill_ux.md */
+    :root {
+      color-scheme: dark;
+    }
+
+    body {
+      background-color: #08090C;
+      color: #E2E8F0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Enfoque accesible visible (Regla: Visible Focus Rings de skill_ux.md) */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible {
+      outline: 2px solid #E5A93C !important;
+      outline-offset: 2px !important;
+    }
+
+    /* Outlines puros para imágenes (Regla Image Outlines: pure white 10% en dark mode de skill_ux.md) */
+    .img-outline {
+      outline: 1px solid oklch(1 0 0 / 0.12);
+      outline-offset: -1px;
+    }
+
+    /* Tabular numbers para métricas (Regla Typography #7: Tabular Numbers de skill_ux.md) */
+    .tabular-numbers {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Efecto Scale on Press sutil de skill_ux.md (scale 0.96 exacto con transición explícita) */
+    .btn-press {
+      transition-property: transform, background-color, border-color, box-shadow, opacity, color;
+      transition-duration: 150ms;
+      transition-timing-function: ease-out;
+    }
+    .btn-press:active {
+      transform: scale(0.96);
+    }
+
+    /* Respeto a prefers-reduced-motion de skill_ux.md */
+    @media (prefers-reduced-motion: reduce) {
+      *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen selection:bg-amber-500/30 selection:text-amber-200">
+
+  <!-- ========================================== -->
+  <!-- BARRA DE NAVEGACIÓN SUPERIOR / TOP BAR     -->
+  <!-- ========================================== -->
+  <header class="sticky top-0 z-40 w-full border-b border-white/10 bg-[#08090C]/90 backdrop-blur-xl transition-[background-color] duration-200">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3.5 sm:px-6 md:py-4">
+      
+      <!-- Logotipo & Identidad de Agencia -->
+      <a href="#hero" class="group flex items-center gap-3">
+        <div class="flex size-10 items-center justify-center rounded-xl border border-amber-500/30 bg-gradient-to-br from-amber-500/20 to-amber-600/5 text-amber-300 shadow-md transition-[border-color,transform] duration-200 group-hover:scale-105 group-hover:border-amber-400">
+          <span class="font-serif text-lg font-black tracking-wider">LMN</span>
+        </div>
+        <div>
+          <span class="font-serif text-base sm:text-lg font-bold tracking-tight text-white group-hover:text-amber-300 transition-[color] duration-150">
+            LMN Agency
+          </span>
+          <p class="text-[10px] sm:text-[11px] font-medium uppercase tracking-widest text-zinc-400">
+            Talent & Cinematic Management
+          </p>
+        </div>
+      </a>
+
+      <!-- Menú de Salto / Navegación Desktop -->
+      <nav class="hidden md:flex items-center gap-7 text-xs font-semibold uppercase tracking-wider text-zinc-300" aria-label="Navegación principal">
+        <a href="#roster" class="transition-[color] duration-150 hover:text-amber-400">Roster</a>
+        <a href="#stats" class="transition-[color] duration-150 hover:text-amber-400">Estadísticas</a>
+        <a href="#servicios" class="transition-[color] duration-150 hover:text-amber-400">Cine & Squads</a>
+        <a href="#alianzas" class="transition-[color] duration-150 hover:text-amber-400">Alianzas</a>
+        <a href="#contacto" class="transition-[color] duration-150 hover:text-amber-400">Contacto</a>
+      </nav>
+
+      <!-- Botón de Acción Principal (Contrataciones & Booking) -->
+      <div class="flex items-center gap-2.5">
+        <a id="nav-cta-booking"
+           href="mailto:booking@lmnagency.com?subject=Consulta%20de%20Booking%20-%20LMN%20Agency&body=Hola%20equipo%20de%20LMN%20Agency,%0A%0ADeseo%20consultar%20disponibilidad%20de%20talentos%20para%20un%20proyecto:%0A%0A-%20Producci%C3%B3n%20o%20Marca:%0A-%20Talento(s)%20de%20inter%C3%A9s:%0A-%20Fechas%20estimadas:%0A%0ASaludos,"
+           class="btn-press flex items-center gap-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 ps-4 pe-3.5 py-2.5 text-xs font-bold text-zinc-950 shadow-[0_4px_16px_rgba(229,169,60,0.25)] hover:from-amber-400 hover:to-amber-500">
+          <span>Contrataciones & Booking</span>
+          <i data-lucide="sparkles" class="size-3.5" aria-hidden="true"></i>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+    <!-- ========================================== -->
+    <!-- SECCIÓN HERO: IMPACTO EDITORIAL & CINEMA   -->
+    <!-- ========================================== -->
+    <section id="hero" class="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-32">
+      <!-- Glow ambiental cinematográfico de fondo -->
+      <div class="pointer-events-none absolute -top-40 left-1/2 -z-10 h-[600px] w-[1000px] -translate-x-1/2 rounded-full bg-gradient-to-b from-amber-500/10 via-amber-600/5 to-transparent blur-3xl" aria-hidden="true"></div>
+      
+      <!-- Efecto radial sutil para profundidad escénica -->
+      <div class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-900/40 via-transparent to-transparent" aria-hidden="true"></div>
+
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-4xl mx-auto space-y-7">
+          
+          <!-- Badges de estatus y prestigio -->
+          <div class="flex flex-wrap items-center justify-center gap-3">
+            <span class="inline-flex items-center gap-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-amber-300">
+              <i data-lucide="clapperboard" class="size-3.5 text-amber-400" aria-hidden="true"></i>
+              <span>Agencia de Representación Exclusiva</span>
+            </span>
+            <span class="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs font-medium text-zinc-300">
+              <span class="size-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>Roster Activo 2025</span>
+            </span>
+          </div>
+
+          <!-- Titular Principal Editorial de Gran Impacto -->
+          <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white leading-[1.1]">
+            Donde la Ficción y la Influencia Digital <span class="bg-gradient-to-r from-amber-300 via-amber-400 to-amber-200 bg-clip-text text-transparent">Convergen</span>
+          </h1>
+
+          <!-- Subtítulo para Directores de Casting & Marcas (Regla: Cap measure en <70ch según skill_ux.md) -->
+          <p class="mx-auto max-w-2xl text-base sm:text-lg leading-relaxed text-zinc-300">
+            Representación de alto perfil para una nueva generación de actores y creadores con audiencias masivas en TikTok e Instagram Reels, formados para producciones cinematográficas, series de televisión y campañas publicitarias de gran escala.
+          </p>
+
+          <!-- Botones de Acción Primarios del Hero -->
+          <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+            <a href="#roster" class="btn-press inline-flex items-center gap-2 rounded-xl bg-amber-500 px-7 py-3.5 text-sm font-bold text-zinc-950 shadow-lg shadow-amber-500/25 hover:bg-amber-400">
+              <i data-lucide="users" class="size-4" aria-hidden="true"></i>
+              <span>Explorar Roster de Talentos</span>
+            </a>
+            <a href="#servicios" class="btn-press inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white hover:border-white/30 hover:bg-white/10">
+              <i data-lucide="film" class="size-4 text-amber-400" aria-hidden="true"></i>
+              <span>Activaciones & Squads</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- ========================================== -->
+        <!-- MÉTRICAS GLOBALES CONSOLIDADAS DEL COLECTIVO -->
+        <!-- ========================================== -->
+        <div id="stats" class="mt-16 sm:mt-20 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+          
+          <div class="rounded-2xl border border-white/10 bg-[#12151D]/80 p-6 backdrop-blur-md shadow-xl transition-[border-color] duration-200 hover:border-amber-500/30">
+            <div class="flex items-center justify-between text-zinc-400 mb-2">
+              <span class="text-xs font-semibold uppercase tracking-wider text-amber-400">Audiencia Total</span>
+              <i data-lucide="users-2" class="size-5 text-amber-400" aria-hidden="true"></i>
+            </div>
+            <div class="text-3xl sm:text-4xl font-extrabold text-white tabular-numbers">
+              +12M
+            </div>
+            <p class="mt-2 text-xs text-zinc-400">
+              Comunidad combinada en redes sociales con alta fidelidad y demografía gen Z / millennial.
+            </p>
+          </div>
+
+          <div class="rounded-2xl border border-white/10 bg-[#12151D]/80 p-6 backdrop-blur-md shadow-xl transition-[border-color] duration-200 hover:border-amber-500/30">
+            <div class="flex items-center justify-between text-zinc-400 mb-2">
+              <span class="text-xs font-semibold uppercase tracking-wider text-amber-400">Alcance Mensual</span>
+              <i data-lucide="trending-up" class="size-5 text-amber-400" aria-hidden="true"></i>
+            </div>
+            <div class="text-3xl sm:text-4xl font-extrabold text-white tabular-numbers">
+              +60M
+            </div>
+            <p class="mt-2 text-xs text-zinc-400">
+              Reproducciones mensuales en formato vertical (TikTok, Instagram Reels y YouTube Shorts).
+            </p>
+          </div>
+
+          <div class="rounded-2xl border border-white/10 bg-[#12151D]/80 p-6 backdrop-blur-md shadow-xl transition-[border-color] duration-200 hover:border-amber-500/30">
+            <div class="flex items-center justify-between text-zinc-400 mb-2">
+              <span class="text-xs font-semibold uppercase tracking-wider text-amber-400">Exclusividad Legal</span>
+              <i data-lucide="shield-check" class="size-5 text-emerald-400" aria-hidden="true"></i>
+            </div>
+            <div class="text-3xl sm:text-4xl font-extrabold text-emerald-400 tabular-numbers">
+              100%
+            </div>
+            <p class="mt-2 text-xs text-zinc-400">
+              Contratos centralizados de ficción y publicidad con gestión jurídica de cesión de derechos.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- CATÁLOGO DE CREADORES: THE ROSTER (6 TALENTOS)-->
+    <!-- ========================================== -->
+    <section id="roster" class="relative border-t border-white/10 bg-[#0A0C11] py-16 md:py-28">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        
+        <!-- Encabezado de Sección con Filtros de Nicho -->
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 pb-12">
+          <div class="space-y-2">
+            <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-400">
+              <i data-lucide="sparkle" class="size-4" aria-hidden="true"></i>
+              <span>Representación Artística</span>
+            </div>
+            <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">
+              The Roster
+            </h2>
+            <p class="max-w-xl text-sm text-zinc-400">
+              Explora a nuestros creadores y actrices representados en exclusiva. Cada ficha técnica incluye Media Kit, comp card descargable y reel de actuación.
+            </p>
+          </div>
+
+          <!-- Filtros de Categoría Rápidos -->
+          <div class="flex flex-wrap items-center gap-2" role="tablist" aria-label="Filtros de talento">
+            <button onclick="filterRoster('todos')" class="roster-filter-btn active btn-press rounded-lg border border-amber-500/40 bg-amber-500/20 px-3 py-1.5 text-xs font-semibold text-amber-300">
+              Todos (6)
+            </button>
+            <button onclick="filterRoster('actuacion')" class="roster-filter-btn btn-press rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-zinc-300 hover:bg-white/10">
+              Actuación & Ficción
+            </button>
+            <button onclick="filterRoster('comedia')" class="roster-filter-btn btn-press rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-zinc-300 hover:bg-white/10">
+              Comedia
+            </button>
+            <button onclick="filterRoster('lifestyle')" class="roster-filter-btn btn-press rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-zinc-300 hover:bg-white/10">
+              Lifestyle & Moda
+            </button>
+          </div>
+        </div>
+
+        <!-- ================================================================ -->
+        <!-- GRID DE TALENTOS (3x2 Desktop, 2x3 Tablet, 1x Col Móvil)          -->
+        <!-- ================================================================ -->
+        <div id="roster-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- ======================================================= -->
+          <!-- TALENTO 1 (ACTIVA): STEPHANIE ALMEIDA                   -->
+          <!-- ======================================================= -->
+          <article data-categories="actuacion comedia lifestyle" class="roster-card group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#12151E] shadow-xl transition-[transform,border-color,box-shadow] duration-200 hover:-translate-y-1.5 hover:border-amber-500/40 hover:shadow-2xl hover:shadow-amber-950/20">
+            <!-- Contenedor Visual Cartelera 3:4 -->
+            <div class="relative aspect-[3/4] w-full overflow-hidden bg-zinc-950">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=80"
+                   alt="Stephanie Almeida - Actriz y Creadora LMN Agency"
+                   loading="eager"
+                   class="img-outline h-full w-full object-cover object-center transition-[transform] duration-500 group-hover:scale-105">
+              
+              <!-- Gradiente de fondo para contraste óptimo -->
+              <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent"></div>
+
+              <!-- Badge Exclusivo LMN Agency -->
+              <div class="absolute top-3.5 left-3.5 flex items-center gap-1.5 rounded-full border border-amber-500/30 bg-black/70 px-3 py-1 text-[11px] font-semibold text-amber-300 backdrop-blur-md">
+                <i data-lucide="shield-check" class="size-3 text-amber-400" aria-hidden="true"></i>
+                <span>Talento Exclusivo</span>
+              </div>
+
+              <!-- Badge de Estatus / Ficha Activa -->
+              <div class="absolute top-3.5 right-3.5 flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-black/70 px-2.5 py-1 text-[11px] font-semibold text-emerald-300 backdrop-blur-md">
+                <span class="size-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>EPK Listo</span>
+              </div>
+
+              <!-- Datos de Impacto Sobreimpresos Inferiores -->
+              <div class="absolute bottom-4 left-4 right-4 space-y-1">
+                <div class="flex items-center gap-2 text-xs font-semibold text-amber-300">
+                  <span class="tabular-numbers">850K+ Seguidores</span>
+                  <span>•</span>
+                  <span class="tabular-numbers">6.8% ER</span>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-white tracking-tight">
+                  Stephanie Almeida
+                </h3>
+                <p class="text-xs text-zinc-300 line-clamp-1">
+                  Actuación & Ficción • Comedia Situacional • Lifestyle
+                </p>
+              </div>
+            </div>
+
+            <!-- Cuerpo de la Tarjeta con Detalles y Acceso al Media Kit -->
+            <div class="flex flex-1 flex-col justify-between p-5 space-y-4 bg-[#141824]/90">
+              <p class="text-xs text-zinc-400 line-clamp-2 leading-relaxed">
+                Actriz con sólida formación escénica y viralidad orgánica. Especializada en comedia de situaciones cotidianas y narrativa audiovisual de alto enganche.
+              </p>
+
+              <!-- Tags de Nichos -->
+              <div class="flex flex-wrap gap-1.5">
+                <span class="rounded bg-white/5 px-2 py-0.5 text-[10px] font-medium text-zinc-300 border border-white/5">Ficción</span>
+                <span class="rounded bg-white/5 px-2 py-0.5 text-[10px] font-medium text-zinc-300 border border-white/5">Comedia</span>
+                <span class="rounded bg-white/5 px-2 py-0.5 text-[10px] font-medium text-zinc-300 border border-white/5">Lifestyle</span>
+              </div>
+
+              <!-- Enlace Relativo Oficial a su EPK / Media Kit -->
+              <div class="pt-2 border-t border-white/5">
+                <a id="card-talent-1-link"
+                   href="./talents/stephanie-almeida-creador-1/index.html"
+                   class="btn-press flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 px-4 py-2.5 text-xs font-bold text-zinc-950 shadow-md shadow-amber-950/30 hover:from-amber-400 hover:to-amber-500">
+                  <span>Ver Media Kit & Ficha Completa</span>
+                  <i data-lucide="arrow-right" class="size-3.5" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+
+          <!-- ======================================================= -->
+          <!-- TALENTO 2: PLANTILLA LISTA (CREADOR 2)                   -->
+          <!-- Ruta prevista: ./talents/creador-2/index.html           -->
+          <!-- ======================================================= -->
+          <article data-categories="actuacion comedia" class="roster-card group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#12151E] shadow-xl transition-[transform,border-color,box-shadow] duration-200 hover:-translate-y-1.5 hover:border-amber-500/40 hover:shadow-2xl">
+            <div class="relative aspect-[3/4] w-full overflow-hidden bg-zinc-950">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1000&q=80"
+                   alt="Talento en Incorporación - Actor LMN Agency"
+                   loading="lazy"
+                   class="img-outline h-full w-full object-cover object-center transition-[transform] duration-500 group-hover:scale-105">
+              
+              <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent"></div>
+
+              <div class="absolute top-3.5 left-3.5 flex items-center gap-1.5 rounded-full border border-amber-500/30 bg-black/70 px-3 py-1 text-[11px] font-semibold text-amber-300 backdrop-blur-md">
+                <i data-lucide="sparkles" class="size-3 text-amber-400" aria-hidden="true"></i>
+                <span>Nuevo Fichaje</span>
+              </div>
+
+              <div class="absolute top-3.5 right-3.5 flex items-center gap-1.5 rounded-full border border-white/15 bg-black/70 px-2.5 py-1 text-[11px] font-semibold text-zinc-300 backdrop-blur-md">
+                <span>Próximamente</span>
+              </div>
+
+              <div class="absolute bottom-4 left-4 right-4 space-y-1">
+                <div class="flex items-center gap-2 text-xs font-semibold text-amber-300">
+                  <span class="tabular-numbers">1.4M+ Seguidores</span>
+                  <span>•</span>
+                  <span class="tabular-numbers">5.9% ER</span>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-white tracking-tight">
+                  Mateo Valenzuela
+                </h3>
+                <p class="text-xs text-zinc-300 line-clamp-1">
+                  Actuación Dramática • Stand-up • Comedia Satírica
+                </p>
+              </div>
+            </div>
+
+            <div class="flex flex-1 flex-col justify-between p-5 space-y-4 bg-[#141824]/90">
+              <p class="text-xs text-zinc-400 line-clamp-2 leading-relaxed">
+                Actor y guionista de sketches satíricos con amplia audiencia en plataformas digitales y participación en series para streaming.
+              </p>
+
+              <div class="flex flex-wrap gap-1.5">
+                <span class="rounded bg-white/5 px-2 py-0.5 text-[10px] font-medium text-zinc-300 border border-white/5">Drama</span>
+                <span class="rounded bg-white/5 px-2 py-0.5 text-[10px] font-medium text-zinc-300 border border-white/5">Stand-up</span>
+                <span class="rounded bg-white/5 px-2 py-0.5 text-[10px] font-medium text-zinc-300 border border-white/5">Series</span>
+              </div>
+
+              <!-- Enlace listo para conectar al duplicar la plantilla -->
+              <div class="pt-2 border-t border-white/5">
+                <!-- REEMPLAZAR href por ./talents/mateo-valenzuela-creador-2/index.html cuando la carpeta esté creada -->
+                <a href="mailto:booking@lmnagency.com?subject=Consulta%20sobre%20Mateo%20Valenzuela"
+                   class="btn-press flex w-full items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-xs font-semibold text-zinc-200 hover:bg-white/10 hover:text-white">
+                  <span>Solicitar Ficha Técnica</span>
+                  <i data-lucide="mail" class="size-3.5 text-amber-400" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+
+          <!-- ======================================================= -->
+          <!-- TALENTO 3: PLANTILLA LISTA (CREADOR 3)                   -->
+          <!-- Ruta prevista: ./talents/creador-3/index.html           -->
+          <!-- ======================================================= -->
+          <article data-categories="actuacion lifestyle" class="roster-card group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#12151E] shadow-xl transition-[transform,border-color,box-shadow] duration-200 hover:-translate-y-1.5 hover:border-amber-500/40 hover:shadow-2xl">
+            <div class="relative aspect-[3/4] w-full overflow-hidden bg-zinc-950">
+              <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1000&q=80"
+                   alt="Valeria Ríos - Actriz y Modelo LMN Agency"
+                   loading="lazy"
+                   class="img-outline h-full w-full object-cover object-center transition-[transform] duration-500 group-hover:scale-105">
+              
+              <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent"></div>
+
+              <div class="absolute top-3.5 left-3.5 flex items-center gap-1.5 rounded-full border border-amber-500/30 bg-black/70 px-3 py-1 text-[11px] font-semibold text-amber-300 backdrop-blur-md">
+                <i data-lucide="shield-check" class="size-3 text-amber-400" aria-hidden="true"></i>
+                <span>Talento Exclusivo</span>
+              </div>
+
+              <div class="absolute top-3.5 right-3.5 flex items-center gap-1.5 rounded-full border border-white/15 bg-black/70 px-2.5 py-1 text-[11px] font-semibold text-zinc-300 backdrop-blur-md">
+                <span>Próximamente</span>
+              </div>
+
+              <div class="absolute bottom-4 left-4 right-4 space-y-1">
+                <div class="flex items-center gap-2 text-xs font-semibold text-amber-300">
+                  <span class="tabular-numbers">980K+ Seguidores</span>
+                  <span>•</span>
+                  <span class="tabular-numbers">7.2% ER</span>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-white tracking-tight">
+                  Valeria Ríos
+                </h3>
+                <p class="text-xs text-zinc-300 line-clamp-1">
+                  Cine Independiente • Moda Editorial • Narrativa Visual
+                </p>
+              </div>
+            </div>
+
+            <div class="flex flex-1 flex-col justify-between p-5 space-y-4 bg-[#141824]/90">
+              <p class="text-xs text-zinc-400 line-clamp-2 leading-relaxed">
+                Presencia magnética en pantalla y versatilidad en proyectos de época y pasarela. Imagen para campañas globales de belleza.
+              </p>
+
+              <div class="flex flex-wrap gap-1.5">
+                <span class="rounded bg-white/5 px-2 py-0.5 text-[10px] font-medium text-zinc-300 border border-white/5">Cine</span>
+                <span class="rounded bg-white/5 px-2 py-0.5 text-[10px] font-medium text-zinc-300 border border-white/5">Editorial</span>
+                <span class="rounded bg-white/5 px-2 py-0.5 text-[10px] font-medium text-zinc-300 border border-white/5">Belleza</span>
+              </div>
+
+              <div class="pt-2 border-t border-white/5">
+                <!-- REEMPLAZAR href por ./talents/valeria-rios-creador-3/index.html cuando la carpeta esté creada -->
+                <a href="mailto:booking@lmnagency.com?subject=Consulta%20sobre%20Valeria%20R%C3%ADos"
+                   class="btn-press flex w-full items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-xs font-semibold text-zinc-200 hover:bg-white/10 hover:text-white">
+                  <span>Solicitar Ficha Técnica</span>
+                  <i data-lucide="mail" class="size-3.5 text-amber-400" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+
+          <!-- ======================================================= -->
+          <!-- TALENTO 4: PLANTILLA LISTA (CREADOR 4)                   -->
+          <!-- Ruta prevista: ./talents/creador-4/index.html           -->
+          <!-- ======================================================= -->
+          <article data-categories="comedia actuacion" class="roster-card group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#12151E] shadow-xl transition-[transform,border-color,box-shadow] duration-200 hover:-translate-y-1.5 hover:border-amber-500/40 hover:shadow-2xl">
+            <div class="relative aspect-[3/4] w-full overflow-hidden bg-zinc-950">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1000&q=80"
+                   alt="Julián Méndez - Comediante y Creador LMN Agency"
+                   loading="lazy"
+                   class="img-outline h-full w-full object-cover object-center transition-[transform] duration-500 group-hover:scale-105">
+              
+              <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent"></div>
+
+              <div class="absolute top-3.5 left-3.5 flex items-center gap-1.5 rounded-full border border-amber-500/30 bg-black/70 px-3 py-1 text-[11px] font-semibold text-amber-300 backdrop-blur-md">
+                <i data-lucide="shield-check" class="size-3 text-amber-400" aria-hidden="true"></i>
+                <span>Talento Exclusivo</span>
+              </div>
+
+              <div class="absolute top-3.5 right-3.5 flex items-center gap-1.5 rounded-full border border-white/15 bg-black/70 px-2.5 py-1 text-[11px] font-semibold text-zinc-300 backdrop-blur-md">
+                <span>Próximamente</span>
+              </div>
+
+              <div class="absolute bottom-4 left-4 right-4 space-y-1">
+                <div class="flex items-center gap-2 text-xs font-semibold text-amber-300">
+                  <span class="tabular-numbers">2.1M+ Seguidores</span>
+                  <span>•</span>
+                  <span class="tabular-numbers">8.4% ER</span>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-white tracking-tight">
+                  Julián Méndez
+                </h3>
+                <p class="text-xs text-zinc-300 line-clamp-1">
+                  Comedia Absurda • Parodias de Cine • Doblaje
+                </p>
+              </div>
+            </div>
+
+            <div class="flex flex-1 flex-col justify-between p-5 space-y-4 bg-[#141824]/90">
+              <p class="text-xs text-zinc-400 line-clamp-2 leading-relaxed">
+                Referente en humor de parodia cinematográfica e improvisación. Conexión de alto impacto con audiencia juvenil en México y Colombia.
+              </p>
+
+              <div class="flex flex-wrap gap-1.5">
+                <span class="rounded bg-white/5 px-2 py-0.5 text-[10px] font-medium text-zinc-300 border border-white/5">Comedia</span>
+                <span class="rounded bg-white/5 px-2 py-0.5 text-[10px] font-medium text-zinc-300 border border-white/5">Doblaje</span>
+                <span class="rounded bg-white/5 px-2 py-0.5 text-[10px] font-medium text-zinc-300 border border-white/5">Viral</span>
+              </div>
+
+              <div class="pt-2 border-t border-white/5">
+                <!-- REEMPLAZAR href por ./talents/julian-mendez-creador-4/index.html cuando la carpeta esté creada -->
+                <a href="mailto:booking@lmnagency.com?subject=Consulta%20sobre%20Juli%C3%A1n%20M%C3%A9ndez"
+                   class="btn-press flex w-full items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-xs font-semibold text-zinc-200 hover:bg-white/10 hover:text-white">
+                  <span>Solicitar Ficha Técnica</span>
+                  <i data-lucide="mail" class="size-3.5 text-amber-400" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+
+          <!-- ======================================================= -->
+          <!-- TALENTO 5: PLANTILLA LISTA (CREADOR 5)                   -->
+          <!-- Ruta prevista: ./talents/creador-5/index.html           -->
+          <!-- ======================================================= -->
+          <article data-categories="lifestyle actuacion" class="roster-card group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#12151E] shadow-xl transition-[transform,border-color,box-shadow] duration-200 hover:-translate-y-1.5 hover:border-amber-500/40 hover:shadow-2xl">
+            <div class="relative aspect-[3/4] w-full overflow-hidden bg-zinc-950">
+              <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1000&q=80"
+                   alt="Camila Soto - Actriz y Lifestyle LMN Agency"
+                   loading="lazy"
+                   class="img-outline h-full w-full object-cover object-center transition-[transform] duration-500 group-hover:scale-105">
+              
+              <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent"></div>
+
+              <div class="absolute top-3.5 left-3.5 flex items-center gap-1.5 rounded-full border border-amber-500/30 bg-black/70 px-3 py-1 text-[11px] font-semibold text-amber-300 backdrop-blur-md">
+                <i data-lucide="shield-check" class="size-3 text-amber-400" aria-hidden="true"></i>
+                <span>Talento Exclusivo</span>
+              </div>
+
+              <div class="absolute top-3.5 right-3.5 flex items-center gap-1.5 rounded-full border border-white/15 bg-black/70 px-2.5 py-1 text-[11px] font-semibold text-zinc-300 backdrop-blur-md">
+                <span>Próximamente</span>
+              </div>
+
+              <div class="absolute bottom-4 left-4 right-4 space-y-1">
+                <div class="flex items-center gap-2 text-xs font-semibold text-amber-300">
+                  <span class="tabular-numbers">1.1M+ Seguidores</span>
+                  <span>•</span>
+                  <span class="tabular-numbers">6.1% ER</span>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-white tracking-tight">
+                  Camila Soto
+                </h3>
+                <p class="text-xs text-zinc-300 line-clamp-1">
+                  Teatro Musical • Lifestyle Sustentable • Conducción
+                </p>
+              </div>
+            </div>
+
+            <div class="flex flex-1 flex-col justify-between p-5 space-y-4 bg-[#141824]/90">
+              <p class="text-xs text-zinc-400 line-clamp-2 leading-relaxed">
+                Formación en conservatorio teatral con trayectoria en conducción de alfombras rojas y festivales de cine internacional.
+              </p>
+
+              <div class="flex flex-wrap gap-1.5">
+                <span class="rounded bg-white/5 px-2 py-0.5 text-[10px] font-medium text-zinc-300 border border-white/5">Teatro</span>
+                <span class="rounded bg-white/5 px-2 py-0.5 text-[10px] font-medium text-zinc-300 border border-white/5">Musical</span>
+                <span class="rounded bg-white/5 px-2 py-0.5 text-[10px] font-medium text-zinc-300 border border-white/5">Conducción</span>
+              </div>
+
+              <div class="pt-2 border-t border-white/5">
+                <!-- REEMPLAZAR href por ./talents/camila-soto-creador-5/index.html cuando la carpeta esté creada -->
+                <a href="mailto:booking@lmnagency.com?subject=Consulta%20sobre%20Camila%20Soto"
+                   class="btn-press flex w-full items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-xs font-semibold text-zinc-200 hover:bg-white/10 hover:text-white">
+                  <span>Solicitar Ficha Técnica</span>
+                  <i data-lucide="mail" class="size-3.5 text-amber-400" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+
+          <!-- ======================================================= -->
+          <!-- TALENTO 6: PLANTILLA LISTA (CREADOR 6)                   -->
+          <!-- Ruta prevista: ./talents/creador-6/index.html           -->
+          <!-- ======================================================= -->
+          <article data-categories="actuacion comedia lifestyle" class="roster-card group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#12151E] shadow-xl transition-[transform,border-color,box-shadow] duration-200 hover:-translate-y-1.5 hover:border-amber-500/40 hover:shadow-2xl">
+            <div class="relative aspect-[3/4] w-full overflow-hidden bg-zinc-950">
+              <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=1000&q=80"
+                   alt="Daniel Cruz - Actor y Creador LMN Agency"
+                   loading="lazy"
+                   class="img-outline h-full w-full object-cover object-center transition-[transform] duration-500 group-hover:scale-105">
+              
+              <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent"></div>
+
+              <div class="absolute top-3.5 left-3.5 flex items-center gap-1.5 rounded-full border border-amber-500/30 bg-black/70 px-3 py-1 text-[11px] font-semibold text-amber-300 backdrop-blur-md">
+                <i data-lucide="shield-check" class="size-3 text-amber-400" aria-hidden="true"></i>
+                <span>Talento Exclusivo</span>
+              </div>
+
+              <div class="absolute top-3.5 right-3.5 flex items-center gap-1.5 rounded-full border border-white/15 bg-black/70 px-2.5 py-1 text-[11px] font-semibold text-zinc-300 backdrop-blur-md">
+                <span>Próximamente</span>
+              </div>
+
+              <div class="absolute bottom-4 left-4 right-4 space-y-1">
+                <div class="flex items-center gap-2 text-xs font-semibold text-amber-300">
+                  <span class="tabular-numbers">1.8M+ Seguidores</span>
+                  <span>•</span>
+                  <span class="tabular-numbers">7.0% ER</span>
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-white tracking-tight">
+                  Daniel Cruz
+                </h3>
+                <p class="text-xs text-zinc-300 line-clamp-1">
+                  Acción & Ficción • Coreografía Escénica • Comedia Urbana
+                </p>
+              </div>
+            </div>
+
+            <div class="flex flex-1 flex-col justify-between p-5 space-y-4 bg-[#141824]/90">
+              <p class="text-xs text-zinc-400 line-clamp-2 leading-relaxed">
+                Actor especializado en escenas de acción, artes marciales y dinámicas de grupo. Alto engagement en lanzamientos cinematográficos y videojuegos.
+              </p>
+
+              <div class="flex flex-wrap gap-1.5">
+                <span class="rounded bg-white/5 px-2 py-0.5 text-[10px] font-medium text-zinc-300 border border-white/5">Acción</span>
+                <span class="rounded bg-white/5 px-2 py-0.5 text-[10px] font-medium text-zinc-300 border border-white/5">Ficción</span>
+                <span class="rounded bg-white/5 px-2 py-0.5 text-[10px] font-medium text-zinc-300 border border-white/5">Gaming</span>
+              </div>
+
+              <div class="pt-2 border-t border-white/5">
+                <!-- REEMPLAZAR href por ./talents/daniel-cruz-creador-6/index.html cuando la carpeta esté creada -->
+                <a href="mailto:booking@lmnagency.com?subject=Consulta%20sobre%20Daniel%20Cruz"
+                   class="btn-press flex w-full items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-xs font-semibold text-zinc-200 hover:bg-white/10 hover:text-white">
+                  <span>Solicitar Ficha Técnica</span>
+                  <i data-lucide="mail" class="size-3.5 text-amber-400" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECCIÓN B2B: ACTIVACIONES COLECTIVAS & CINE -->
+    <!-- ========================================== -->
+    <section id="servicios" class="relative border-t border-white/10 bg-[#08090C] py-16 md:py-28">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto space-y-3 mb-16">
+          <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-400">
+            <i data-lucide="briefcase" class="size-4" aria-hidden="true"></i>
+            <span>Valor Estratégico B2B</span>
+          </div>
+          <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">
+            Activaciones Colectivas & Cine
+          </h2>
+          <p class="text-sm sm:text-base text-zinc-400">
+            Optimizamos la sinergia entre el lenguaje del entretenimiento cinematográfico y la amplificación en plataformas sociales masivas.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Pilar 1: Casting & Proyectos Audiovisuales -->
+          <div class="rounded-2xl border border-white/10 bg-[#12151D] p-8 space-y-4 shadow-xl transition-[border-color,transform] duration-200 hover:-translate-y-1 hover:border-amber-500/30">
+            <div class="flex size-12 items-center justify-center rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20">
+              <i data-lucide="clapperboard" class="size-6" aria-hidden="true"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">
+              Casting & Producción Audiovisual
+            </h3>
+            <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+              Talentos preparados para set cinematográfico, series de streaming y televisión lineal. Con formación actoral rigurosa, dominio de guiones dramáticos y tiempos de rodaje profesional.
+            </p>
+            <ul class="space-y-2 text-xs text-zinc-300 pt-2 border-t border-white/5">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="size-4 text-emerald-400" aria-hidden="true"></i>
+                <span>Self-tapes bajo guion en menos de 24 horas</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="size-4 text-emerald-400" aria-hidden="true"></i>
+                <span>Disponibilidad para llamados y rodajes en locación</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Pilar 2: Campañas Colectivas (Squad Campaigns) -->
+          <div class="rounded-2xl border border-amber-500/30 bg-gradient-to-b from-[#161B26] to-[#12151D] p-8 space-y-4 shadow-xl transition-[border-color,transform] duration-200 hover:-translate-y-1 hover:border-amber-400">
+            <div class="flex size-12 items-center justify-center rounded-xl bg-amber-500/20 text-amber-300 border border-amber-500/30">
+              <i data-lucide="layers" class="size-6" aria-hidden="true"></i>
+            </div>
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-bold text-white">
+                Campañas Colectivas (Squads)
+              </h3>
+              <span class="rounded-full bg-amber-500/20 px-2.5 py-0.5 text-[10px] font-bold text-amber-300 uppercase">Exclusivo</span>
+            </div>
+            <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+              Despliegue sincronizado de nuestros 6 creadores bajo una misma narrativa transmedia. Ideal para estrenos de películas, alfombras rojas y lanzamientos de producto masivos.
+            </p>
+            <ul class="space-y-2 text-xs text-zinc-300 pt-2 border-t border-white/10">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="size-4 text-emerald-400" aria-hidden="true"></i>
+                <span>Alcance unificado superior a 60M de vistas</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="size-4 text-emerald-400" aria-hidden="true"></i>
+                <span>Storytelling cruzado entre personajes del roster</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Pilar 3: Blindaje Legal y Cesión de Derechos -->
+          <div class="rounded-2xl border border-white/10 bg-[#12151D] p-8 space-y-4 shadow-xl transition-[border-color,transform] duration-200 hover:-translate-y-1 hover:border-amber-500/30">
+            <div class="flex size-12 items-center justify-center rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20">
+              <i data-lucide="file-check" class="size-6" aria-hidden="true"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">
+              Gestión Jurídica & Buyouts
+            </h3>
+            <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+              Centralización legal total de contratos de exclusividad, cesión de derechos de imagen para salas de cine, pauta digital (paid media whitelist) y licencias transfronterizas.
+            </p>
+            <ul class="space-y-2 text-xs text-zinc-300 pt-2 border-t border-white/5">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="size-4 text-emerald-400" aria-hidden="true"></i>
+                <span>Facturación corporativa unificada</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="size-4 text-emerald-400" aria-hidden="true"></i>
+                <span>Contratos blindados contra contingencias</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- ALIANZAS & PRODUCTORAS / CASTING PARTNERS  -->
+    <!-- ========================================== -->
+    <section id="alianzas" class="relative border-t border-white/10 bg-[#0A0C11] py-16 md:py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center space-y-2 mb-10">
+          <p class="text-xs font-bold uppercase tracking-widest text-zinc-400">
+            Nuestros talentos colaboran con líderes de la industria
+          </p>
+        </div>
+
+        <!-- Logotipos de Marcas / Plataformas Simbolizados con Elegancia -->
+        <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-12 opacity-80 grayscale transition-[filter,opacity] duration-300 hover:grayscale-0 hover:opacity-100">
+          <span class="font-serif text-lg sm:text-xl font-bold text-white tracking-wider">NETFLIX</span>
+          <span class="font-serif text-lg sm:text-xl font-bold text-white tracking-wider">HBO MAX</span>
+          <span class="font-serif text-lg sm:text-xl font-bold text-white tracking-wider">PRIME VIDEO</span>
+          <span class="font-serif text-lg sm:text-xl font-bold text-white tracking-wider">WARNER BROS.</span>
+          <span class="font-serif text-lg sm:text-xl font-bold text-white tracking-wider">SPOTIFY</span>
+          <span class="font-serif text-lg sm:text-xl font-bold text-white tracking-wider">MAYBELLINE</span>
+          <span class="font-serif text-lg sm:text-xl font-bold text-white tracking-wider">SEPHORA</span>
+          <span class="font-serif text-lg sm:text-xl font-bold text-white tracking-wider">SONY PICTURES</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECCIÓN CONTACTO & BOOKING INSTITUCIONAL   -->
+    <!-- ========================================== -->
+    <section id="contacto" class="relative border-t border-white/10 bg-[#08090C] py-20 md:py-28">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        
+        <!-- Tarjeta Central de Contacto y Representación -->
+        <div class="relative overflow-hidden rounded-3xl border border-amber-500/30 bg-gradient-to-b from-[#141822] to-[#0D1017] p-8 sm:p-14 shadow-2xl text-center space-y-7">
+          <div class="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-amber-500/10 blur-3xl" aria-hidden="true"></div>
+
+          <div class="inline-flex items-center gap-2 rounded-full border border-amber-500/40 bg-amber-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-amber-300">
+            <i data-lucide="mail-check" class="size-4 text-amber-400" aria-hidden="true"></i>
+            <span>Oficina Central de Management</span>
+          </div>
+
+          <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">
+            Inicia una Conversación de Casting o Campaña
+          </h2>
+
+          <p class="max-w-2xl mx-auto text-sm sm:text-base text-zinc-300 leading-relaxed">
+            Nuestro equipo de agentes atiende solicitudes directas de directores de casting, productoras cinematográficas, agencias de medios y marcas de prestigio.
+          </p>
+
+          <!-- Botones de Acción de Contacto Directo -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto pt-2">
+            
+            <!-- WhatsApp Corporativo -->
+            <a id="btn-agency-whatsapp"
+               href="https://wa.me/5215500000000?text=Hola%20LMN%20Agency,%20deseo%20consultar%20disponibilidad%20de%20talentos%20del%20roster."
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn-press flex items-center justify-center gap-3 rounded-xl bg-emerald-600 px-6 py-4 text-sm font-bold text-white shadow-lg shadow-emerald-950/40 hover:bg-emerald-500">
+              <i data-lucide="message-circle" class="size-5" aria-hidden="true"></i>
+              <div class="text-left">
+                <div class="text-[10px] font-normal uppercase tracking-wider text-emerald-100">WhatsApp Oficial</div>
+                <div class="font-bold">Chat con Management</div>
+              </div>
+            </a>
+
+            <!-- Correo Oficial de Booking -->
+            <a id="btn-agency-email"
+               href="mailto:booking@lmnagency.com?subject=Propuesta%20de%20Booking%20-%20LMN%20Agency&body=Hola%20LMN%20Agency,%0A%0AMe%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20para%20un%20proyecto:%0A%0A-%20Nombre%20del%20Proyecto:%0A-%20Tipo%20(Cine,%20Serie,%20Campa%C3%B1a):%0A-%20Talento(s)%20de%20inter%C3%A9s:%0A-%20Presupuesto%20o%20rango:%0A%0ASaludos,"
+               class="btn-press flex items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 px-6 py-4 text-sm font-bold text-zinc-950 shadow-lg shadow-amber-950/30 hover:from-amber-400 hover:to-amber-500">
+              <i data-lucide="mail" class="size-5" aria-hidden="true"></i>
+              <div class="text-left">
+                <div class="text-[10px] font-semibold uppercase tracking-wider text-zinc-900">Email Corporativo</div>
+                <div class="font-bold">booking@lmnagency.com</div>
+              </div>
+            </a>
+
+          </div>
+
+          <!-- Botón de copiado de email -->
+          <div class="pt-2">
+            <button onclick="copyAgencyEmail()" class="btn-press inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-zinc-300 hover:bg-white/10 hover:text-white">
+              <i data-lucide="copy" class="size-3.5 text-amber-400" aria-hidden="true"></i>
+              <span id="btn-copy-agency-text">Copiar booking@lmnagency.com</span>
+            </button>
+          </div>
+
+          <p class="text-[11px] text-zinc-400">
+            Respuesta promedio garantizada en menos de 4 horas hábiles. Todos los acuerdos se rigen bajo estricta exclusividad de representación.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================== -->
+  <!-- FOOTER INSTITUCIONAL                       -->
+  <!-- ========================================== -->
+  <footer class="border-t border-white/10 bg-[#060709] py-12 text-xs text-zinc-400">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-8">
+      
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div class="space-y-2">
+          <div class="flex items-center gap-2">
+            <span class="font-serif text-lg font-bold text-white">LMN Agency</span>
+            <span class="text-zinc-600">•</span>
+            <span class="text-zinc-400 font-medium">Talent & Cinematic Management</span>
+          </div>
+          <p class="max-w-md text-zinc-400 text-xs leading-relaxed">
+            Representación artística de creadores de ficción, actrices y comediantes. Conectando audiencias masivas digitales con la gran pantalla.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-6 text-zinc-300 font-medium">
+          <a href="#roster" class="hover:text-amber-400 transition-[color] duration-150">Roster Completo</a>
+          <a href="#servicios" class="hover:text-amber-400 transition-[color] duration-150">Cine & Squads</a>
+          <a href="mailto:booking@lmnagency.com" class="hover:text-amber-400 transition-[color] duration-150">Booking Directo</a>
+          <a href="./talents/stephanie-almeida-creador-1/index.html" class="hover:text-amber-400 transition-[color] duration-150">EPK Stephanie Almeida</a>
+        </div>
+      </div>
+
+      <div class="pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <p class="text-zinc-400">
+          © <span id="current-year">2025</span> LMN Agency. Todos los derechos reservados. Todos los talentos son representados en exclusiva para proyectos cinematográficos y comerciales por LMN Agency.
+        </p>
+        <p class="text-zinc-400 text-[11px]">
+          Desplegado de forma autónoma en GitHub Pages.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================== -->
+  <!-- TOAST FEEDBACK                             -->
+  <!-- ========================================== -->
+  <div id="toast-notification" 
+       role="status" 
+       aria-live="polite" 
+       class="fixed bottom-6 right-6 z-50 hidden items-center gap-2 rounded-xl border border-emerald-500/30 bg-zinc-900/95 px-4 py-3 text-xs font-semibold text-white shadow-2xl backdrop-blur-md">
+    <i data-lucide="check-circle" class="size-4 text-emerald-400" aria-hidden="true"></i>
+    <span id="toast-message">Copiado al portapapeles</span>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- JAVASCRIPT: LÓGICA DE FILTRADO & COPIADO    -->
+  <!-- ========================================== -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Inicializar año dinámico
+      document.getElementById("current-year").textContent = new Date().getFullYear();
+
+      // 2. Renderizar iconos de Lucide
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+    });
+
+    /**
+     * FILTRO DE TALENTOS POR NICHO EN EL ROSTER
+     */
+    function filterRoster(category) {
+      const cards = document.querySelectorAll(".roster-card");
+      const buttons = document.querySelectorAll(".roster-filter-btn");
+
+      // Actualizar estado visual de los botones
+      buttons.forEach(btn => {
+        btn.classList.remove("border-amber-500/40", "bg-amber-500/20", "text-amber-300");
+        btn.classList.add("border-white/10", "bg-white/5", "text-zinc-300");
+      });
+
+      // Resaltar botón activo
+      if (event && event.currentTarget) {
+        event.currentTarget.classList.add("border-amber-500/40", "bg-amber-500/20", "text-amber-300");
+        event.currentTarget.classList.remove("border-white/10", "bg-white/5", "text-zinc-300");
+      }
+
+      // Filtrar tarjetas
+      cards.forEach(card => {
+        const cardCats = card.getAttribute("data-categories") || "";
+        if (category === "todos" || cardCats.includes(category)) {
+          card.style.display = "flex";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    /**
+     * COPIADO RÁPIDO DE EMAIL CON FEEDBACK TOAST
+     */
+    function copyAgencyEmail() {
+      const email = "booking@lmnagency.com";
+      navigator.clipboard.writeText(email).then(() => {
+        const btnText = document.getElementById("btn-copy-agency-text");
+        if (btnText) {
+          const original = btnText.textContent;
+          btnText.textContent = "¡Email Copiado con Éxito!";
+          setTimeout(() => { btnText.textContent = original; }, 2000);
+        }
+        showToast("booking@lmnagency.com copiado al portapapeles");
+      }).catch(() => {
+        showToast("Email: " + email);
+      });
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById("toast-notification");
+      const msg = document.getElementById("toast-message");
+      if (!toast || !msg) return;
+
+      msg.textContent = message;
+      toast.classList.remove("hidden");
+      toast.classList.add("flex");
+
+      setTimeout(() => {
+        toast.classList.add("hidden");
+        toast.classList.remove("flex");
+      }, 3000);
+    }
+  </script>
+
+</body>
+</html>
