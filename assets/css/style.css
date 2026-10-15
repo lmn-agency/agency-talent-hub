@@ -231,3 +231,51 @@ img.lmn-img {
     color: #000000 !important;
   }
 }
+
+/* =======================================================
+ * MODAL DE REEL 9:16 Y REPRODUCTOR ULTRA RESPONSIVE
+ * ======================================================= */
+#media-modal {
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+#media-modal.flex {
+  animation: modalFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#media-modal-card {
+  animation: modalScaleIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalScaleIn {
+  from {
+    transform: scale(0.96);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Prevenir desbordamiento horizontal en video y contenedores móviles */
+.reel-video-wrapper {
+  max-width: 100%;
+  width: 100%;
+}
+
+.reel-video-wrapper video {
+  max-width: 100%;
+  max-height: 100%;
+  outline: none;
+}

@@ -127,17 +127,28 @@
 
             <!-- Título Principal y Nichos -->
             <div class="space-y-3">
-              <h1 id="talent-name" class="font-serif text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white">
+              <h1 id="talent-name" class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white">
                 Stephanie Almeida
               </h1>
               <p id="talent-categories" class="text-base sm:text-lg font-medium text-amber-200/90 tracking-wide">
-                Actuación & Ficción <span class="text-zinc-600 px-1">•</span> Comedia Situacional <span class="text-zinc-600 px-1">•</span> Lifestyle
+                Actuación <span class="text-zinc-600 px-1">•</span> Fashion <span class="text-zinc-600 px-1">•</span> Lifestyle
               </p>
+
+              <!-- Apartado Redes Sociales: TikTok - Instagram (Estilizado LMN Agency) -->
+              <div class="pt-2">
+                <div class="text-[11px] font-bold uppercase tracking-wider text-zinc-400 mb-2 flex items-center gap-1.5">
+                  <i data-lucide="share-2" class="size-3.5 text-amber-400" aria-hidden="true"></i>
+                  <span>Redes Sociales Oficiales</span>
+                </div>
+                <div id="talent-socials-container" class="flex flex-wrap items-center gap-2.5">
+                  <!-- Se inyecta dinámicamente desde PROFILE_CONFIG.socials -->
+                </div>
+              </div>
             </div>
 
             <!-- Descripción Editorial / Bio de Casting (Max 65ch para legibilidad según skill_ux.md) -->
             <p id="talent-bio" class="max-w-2xl text-sm sm:text-base leading-relaxed text-zinc-300">
-              Actriz con sólida presencia en escena e impacto digital. Especializada en lifestyle, moda, fitness, monólogos contemporáneos y narrativa audiovisual de alto enganche. Su versatilidad interpretativa y carisma orgánico conectan con audiencias jóvenes y marcas de primer nivel en México y Latinoamérica.
+              Actriz con sólida presencia en escena e impacto digital. Especializada en lifestyle, moda y narrativa audiovisual de alto enganche. Su versatilidad interpretativa y carisma orgánico conectan con audiencias jóvenes y marcas de primer nivel en México y Latinoamérica.
             </p>
 
             <!-- Grid de Métricas Clave (Tabular Numbers según regla de tipografía skill_ux.md) -->
@@ -248,9 +259,6 @@
             <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white tracking-tight">
               Showreel Vertical 9:16
             </h2>
-            <p class="max-w-xl text-sm text-zinc-400">
-              Muestras de interpretación en formato dinámico para directores de casting y marcas. Carga optimizada sin impacto en rendimiento.
-            </p>
           </div>
           
           <div class="flex items-center gap-2 text-xs text-zinc-400">
@@ -293,7 +301,7 @@
         <div class="text-center max-w-2xl mx-auto mb-14 space-y-3">
           <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-400">
             <i data-lucide="clipboard-check" class="size-4" aria-hidden="true"></i>
-            <span>Especificaciones Actorales</span>
+            <span>Especificaciones de Influencer</span>
           </div>
           <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white tracking-tight">
             Ficha Técnica de Casting
@@ -318,15 +326,15 @@
             <dl class="space-y-3.5 text-sm">
               <div class="flex justify-between py-1 border-b border-white/5">
                 <dt class="text-zinc-400">Estatura</dt>
-                <dd id="spec-height" class="font-semibold text-white">1.68 m</dd>
+                <dd id="spec-height" class="font-semibold text-white">1.65 m</dd>
               </div>
               <div class="flex justify-between py-1 border-b border-white/5">
                 <dt class="text-zinc-400">Rango de edad aparente</dt>
-                <dd id="spec-age-range" class="font-semibold text-white">22 - 28 años</dd>
+                <dd id="spec-age-range" class="font-semibold text-white">28 - 35 años</dd>
               </div>
               <div class="flex justify-between py-1 border-b border-white/5">
                 <dt class="text-zinc-400">Color de ojos</dt>
-                <dd id="spec-eyes" class="font-semibold text-white">Café oscuro</dd>
+                <dd id="spec-eyes" class="font-semibold text-white">Verde</dd>
               </div>
               <div class="flex justify-between py-1 border-b border-white/5">
                 <dt class="text-zinc-400">Color de cabello</dt>
@@ -334,11 +342,11 @@
               </div>
               <div class="flex justify-between py-1 border-b border-white/5">
                 <dt class="text-zinc-400">Tono de piel</dt>
-                <dd id="spec-skin" class="font-semibold text-white">Trigueña / Latina cálida</dd>
+                <dd id="spec-skin" class="font-semibold text-white">Blanca</dd>
               </div>
               <div class="flex justify-between py-1">
                 <dt class="text-zinc-400">Calzado</dt>
-                <dd id="spec-shoes" class="font-semibold text-white">24.5 MX / 7.5 US</dd>
+                <dd id="spec-shoes" class="font-semibold text-white">23.5 MX / 6.5 US</dd>
               </div>
             </dl>
 
@@ -550,41 +558,50 @@
        role="dialog" 
        aria-modal="true" 
        aria-labelledby="modal-title" 
-       class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 bg-black/90 backdrop-blur-md transition-opacity duration-200"
+       class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-5 md:p-6 bg-black/90 backdrop-blur-md transition-opacity duration-200 overflow-y-auto"
        onclick="handleModalBackdropClick(event)">
     
-    <div class="relative w-full max-w-4xl max-h-[92vh] overflow-hidden rounded-2xl border border-white/15 bg-zinc-950 shadow-2xl flex flex-col"
+    <div id="media-modal-card"
+         class="relative w-full max-w-[360px] sm:max-w-md md:max-w-lg max-h-[94vh] rounded-2xl border border-white/15 bg-zinc-950 shadow-2xl flex flex-col overflow-hidden mx-auto my-auto"
          onclick="event.stopPropagation()">
       
-      <!-- Barra superior del modal -->
-      <div class="flex items-center justify-between border-b border-white/10 px-5 py-3.5 bg-zinc-900/90">
-        <div class="flex items-center gap-2">
-          <span id="modal-badge" class="rounded-full bg-amber-500/10 border border-amber-500/30 px-2.5 py-0.5 text-[11px] font-semibold text-amber-300">
+      <!-- Barra superior del modal (Responsive con protección de desbordamiento min-w-0) -->
+      <div class="flex items-center justify-between border-b border-white/10 px-3.5 sm:px-4 py-2.5 sm:py-3 bg-zinc-900/95 gap-2 min-w-0">
+        <div class="flex items-center gap-2 min-w-0 flex-1">
+          <span id="modal-badge" class="shrink-0 rounded-full bg-amber-500/10 border border-amber-500/30 px-2.5 py-0.5 text-[10px] font-semibold text-amber-300">
             Showreel 9:16
           </span>
-          <h3 id="modal-title" class="text-sm font-bold text-white truncate max-w-md">
+          <h3 id="modal-title" class="text-xs sm:text-sm font-bold text-white truncate min-w-0 flex-1">
             Título del Medio
           </h3>
         </div>
         <button id="modal-close-btn"
                 onclick="closeMediaModal()"
-                class="btn-press flex size-9 items-center justify-center rounded-lg bg-white/10 text-zinc-300 hover:bg-white/20 hover:text-white"
+                class="btn-press shrink-0 flex size-8 sm:size-9 items-center justify-center rounded-lg bg-white/10 text-zinc-300 hover:bg-white/20 hover:text-white"
                 aria-label="Cerrar ventana emergente (o presiona tecla Escape)">
           <i data-lucide="x" class="size-4" aria-hidden="true"></i>
         </button>
       </div>
 
-      <!-- Contenedor del contenido modal -->
-      <div id="modal-content" class="relative flex-1 overflow-auto bg-black flex items-center justify-center p-2 min-h-[360px] max-h-[75vh]">
-        <!-- Inyección dinámica: video 9:16 simulado o imagen de alta resolución -->
+      <!-- Contenedor del contenido modal (9:16 adaptable que no se desfasa) -->
+      <div id="modal-content" class="relative flex-1 overflow-hidden bg-black flex items-center justify-center p-2 sm:p-3 min-h-[260px]">
+        <!-- Inyección dinámica: video HTML5 de Cloudflare o imagen del book fotográfico -->
       </div>
 
       <!-- Pie del modal con controles y descripción -->
-      <div class="flex items-center justify-between border-t border-white/10 px-5 py-3 bg-zinc-900/90 text-xs text-zinc-400">
-        <span id="modal-caption">Stephanie Almeida • LMN Agency</span>
-        <button id="modal-extra-action" onclick="closeMediaModal()" class="rounded px-3 py-1 bg-white/10 text-white hover:bg-white/20 text-xs font-medium">
-          Cerrar
-        </button>
+      <div class="flex items-center justify-between border-t border-white/10 px-3.5 sm:px-4 py-2.5 bg-zinc-900/95 text-xs text-zinc-400 gap-2 min-w-0">
+        <span id="modal-caption" class="truncate min-w-0 flex-1 text-[11px] sm:text-xs text-zinc-400">
+          Stephanie Almeida • LMN Agency
+        </span>
+        <div class="flex items-center gap-2 shrink-0">
+          <button id="modal-sound-btn" onclick="toggleModalVideoMute()" class="hidden btn-press items-center gap-1.5 rounded-lg px-2.5 py-1 bg-white/10 text-zinc-200 hover:bg-white/20 text-[11px] font-medium" title="Activar / Desactivar Sonido">
+            <i id="modal-sound-icon" data-lucide="volume-2" class="size-3.5"></i>
+            <span id="modal-sound-text">Sonido</span>
+          </button>
+          <button id="modal-extra-action" onclick="closeMediaModal()" class="btn-press rounded-lg px-2.5 py-1 bg-amber-500/20 text-amber-300 hover:bg-amber-500/30 border border-amber-500/30 text-xs font-semibold">
+            Cerrar
+          </button>
+        </div>
       </div>
 
     </div>
@@ -624,7 +641,27 @@
       whatsappNumber: "5215500000000", // Reemplazar con el número oficial de LMN Agency
       whatsappMessage: "Hola LMN Agency, me gustaría consultar disponibilidad y tarifas para Stephanie Almeida.",
 
-      // 3. Métricas Clave (Sincronizadas con 10/2026)
+      // 3. Redes Sociales Oficiales (TikTok - Instagram)
+      socials: [
+        {
+          platform: "tiktok",
+          name: "TikTok",
+          handle: "@stephaniealmeida",
+          url: "https://www.tiktok.com/@stephaniealmeida",
+          followers: "12.5K",
+          highlight: "Comedia & Lifestyle"
+        },
+        {
+          platform: "instagram",
+          name: "Instagram",
+          handle: "@stephaniealmeida",
+          url: "https://www.instagram.com/stephaniealmeida",
+          followers: "6.7K",
+          highlight: "Actuación & Moda"
+        }
+      ],
+
+      // 4. Métricas Clave (Sincronizadas con 10/2026)
       metrics: {
         totalFollowers: "19.2K+",
         monthlyViews: "34.4K",
@@ -648,34 +685,34 @@
       reels: [
         {
           id: 1,
-          title: "Monólogo dramático - 'El Umbral'",
-          category: "Ficción & Drama",
-          views: "1.2M",
-          duration: "0:45",
+          title: "Miniso 'Encuentra tu momento'",
+          category: "Anuncio para Miniso",
+          views: "250K",
+          duration: "0:30",
           // URL de video vertical o miniatura en Cloudflare
-          videoPoster: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80",
-          videoUrl: "", // Opcional: URL directa .mp4 si se desea reproducir en video nativo
-          description: "Escena dramática de alta intensidad emocional para cine y series streaming."
+          videoPoster: "../../assets/images/stephanie/Portada%20Video%20Miniso.webp",
+          videoUrl: "https://pub-c970afdabc634009b751fd9609b9149a.r2.dev/Video%20Miniso.mp4", // Opcional: URL directa .mp4 si se desea reproducir en video nativo
+          description: "Video promocional para la marca Miniso"
         },
         {
           id: 2,
-          title: "Comedia cotidiana: 'Manual para sobrevivir en la oficina'",
-          category: "Comedia Situacional",
-          views: "2.4M",
-          duration: "0:38",
-          videoPoster: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80",
-          videoUrl: "",
-          description: "Sketch cómico situacional viral con más de 250k compartidos en redes."
+          title: "Telcel - Iphone 15",
+          category: "Anuncio para Telcel",
+          views: "450K",
+          duration: "0:30",
+          videoPoster: "../../assets/images/stephanie/Portada%20Telcel.webp",
+          videoUrl: "https://pub-c970afdabc634009b751fd9609b9149a.r2.dev/Telcel%20-%20Iphone.mp4",
+          description: "Anuncio Iphone X -Telcel"
         },
         {
           id: 3,
-          title: "Campaña editorial & Moda urbana",
-          category: "Lifestyle & Branded",
-          views: "890K",
+          title: "Videoblog - Lifestyle",
+          category: "Lifestyle",
+          views: "220K",
           duration: "0:52",
-          videoPoster: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=800&q=80",
-          videoUrl: "",
-          description: "Dirección de arte contemporánea, modelaje y presencia de marca."
+          videoPoster: "../../assets/images/stephanie/Portada%20Tik%20Tok.webp",
+          videoUrl: "https://pub-c970afdabc634009b751fd9609b9149a.r2.dev/Tik%20Tok%20Stephanie%20Almeida.mp4",
+          description: "Vlog donde se muestran experiencias personales en México"
         }
       ],
 
@@ -688,31 +725,27 @@
         skin: "Trigueña / Latina cálida",
         shoes: "24.5 MX / 7.5 US",
         languages: [
-          { name: "Español", level: "Nativo" },
-          { name: "Inglés", level: "Fluido / B2+" }
+          { name: "Español", level: "Avanzado" },
+          { name: "Inglés", level: "Intermedio" }
         ],
         accents: [
-          "Neutro Latinoamericano",
-          "Mexicano (CDMX / Urbano)",
-          "Mexicano (Norte)",
-          "Colombiano (Bogotá / Paisa)"
+          "Español con acento extranjero",
+          "Portugués Brasileño (nativo)"
         ],
         skills: [
-          "Actuación dramática y preparación Stanislavski",
+          "Actuación dramática",
           "Comedia situacional e improvisación cómica (Improv)",
-          "Danza contemporánea y ritmos latinos",
-          "Locución comercial y doblaje sincrónico",
+          "Baile con ritmos latinos",
           "Conducción y host de eventos en vivo",
-          "Manejo de vehículo estándar y automático"
-        ],
+          "Manejo de vehículo estándar y automático",
+          "Manejo de moto eléctrica",
+          "Skateboarding",
+                  ],
         brands: [
-          "Netflix Latam",
-          "Maybelline New York",
-          "Spotify México",
-          "Sephora",
-          "Liverpool",
-          "Nike México",
-          "Uber Latam"
+          "Puma México",
+          "Telcel",
+          "Tena",
+          "Blim",          
         ]
       },
 
@@ -757,27 +790,65 @@
       // 1. Inicializar año en el pie de página
       document.getElementById("current-year").textContent = new Date().getFullYear();
 
-      // 2. Renderizar Showreel 9:16
+      // 2. Renderizar Redes Sociales Oficiales
+      renderSocials();
+
+      // 3. Renderizar Showreel 9:16
       renderReels();
 
-      // 3. Renderizar Ficha Técnica de Casting
+      // 4. Renderizar Ficha Técnica de Casting
       renderCastingData();
 
-      // 4. Renderizar Book Fotográfico
+      // 5. Renderizar Book Fotográfico
       renderGallery();
 
-      // 5. Inicializar iconos de Lucide
+      // 6. Inicializar iconos de Lucide
       if (window.lucide) {
         window.lucide.createIcons();
       }
 
-      // 6. Configurar accesibilidad de teclado (Cerrar modal con ESC)
+      // 7. Configurar accesibilidad de teclado (Cerrar modal con ESC)
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") {
           closeMediaModal();
         }
       });
     });
+
+    /**
+     * RENDERIZAR REDES SOCIALES OFICIALES
+     */
+    function renderSocials() {
+      const container = document.getElementById("talent-socials-container");
+      if (!container || !PROFILE_CONFIG.socials) return;
+
+      container.innerHTML = PROFILE_CONFIG.socials.map(soc => {
+        const isTiktok = soc.platform === 'tiktok';
+        const iconSvg = isTiktok 
+          ? `<svg class="size-4 text-cyan-400 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.11V9.38a6.34 6.34 0 0 0-.86-.06A6.33 6.33 0 0 0 3 15.65a6.34 6.34 0 0 0 9.17 5.62 6.27 6.27 0 0 0 3.6-5.61V8.71a8.28 8.28 0 0 0 4.82 1.54V6.79a4.85 4.85 0 0 1-1-.1z"/></svg>`
+          : `<svg class="size-4 text-pink-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>`;
+
+        const hoverBorder = isTiktok 
+          ? 'hover:border-cyan-400/50 hover:bg-cyan-500/10' 
+          : 'hover:border-pink-500/50 hover:bg-pink-500/10';
+
+        return `
+          <a href="${soc.url}" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             class="btn-press group inline-flex items-center gap-2 rounded-xl border border-white/12 bg-zinc-900/80 px-3.5 py-2 text-xs font-semibold text-zinc-200 transition-all shadow-sm ${hoverBorder}"
+             title="${soc.name}: ${soc.handle} (${soc.highlight})">
+            ${iconSvg}
+            <div class="flex items-center gap-1.5">
+              <span class="text-white">${soc.name}</span>
+              <span class="text-zinc-400 font-normal">${soc.handle}</span>
+              ${soc.followers ? `<span class="rounded bg-white/10 px-1.5 py-0.5 text-[10px] text-amber-300 font-mono">${soc.followers}</span>` : ''}
+            </div>
+            <i data-lucide="arrow-up-right" class="size-3.5 text-zinc-400 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-amber-400"></i>
+          </a>
+        `;
+      }).join("");
+    }
 
     /**
      * RENDERIZAR TARJETAS DE SHOWREEL 9:16
@@ -787,7 +858,9 @@
       if (!container) return;
 
       container.innerHTML = PROFILE_CONFIG.reels.map((reel) => `
-        <article class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#141721] shadow-lg transition-[transform,border-color,box-shadow] duration-200 hover:-translate-y-1 hover:border-amber-500/40 hover:shadow-xl">
+        <article onclick="openReelModal(${reel.id})" 
+                 class="group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#141721] shadow-lg transition-[transform,border-color,box-shadow] duration-200 hover:-translate-y-1 hover:border-amber-500/40 hover:shadow-xl cursor-pointer"
+                 title="Reproducir: ${reel.title}">
           <!-- Contenedor 9:16 vertical con proporción real -->
           <div class="relative aspect-[9/16] w-full overflow-hidden bg-zinc-950">
             <img src="${reel.videoPoster}" 
@@ -809,12 +882,11 @@
               ${reel.duration}
             </div>
 
-            <!-- Botón central Play con corrección óptica de SVG (Regla Optical Alignment de skill_ux.md) -->
-            <button onclick="openReelModal(${reel.id})"
-                    class="btn-press absolute inset-0 m-auto flex size-14 items-center justify-center rounded-full border border-white/25 bg-amber-500/90 text-zinc-950 shadow-2xl transition-[transform,background-color] duration-200 hover:scale-110 hover:bg-amber-400"
-                    aria-label="Reproducir reel: ${reel.title}">
+            <!-- Botón central Play con corrección óptica de SVG -->
+            <div class="btn-press absolute inset-0 m-auto flex size-14 items-center justify-center rounded-full border border-white/25 bg-amber-500/90 text-zinc-950 shadow-2xl transition-[transform,background-color] duration-200 group-hover:scale-110 group-hover:bg-amber-400"
+                 aria-label="Reproducir reel: ${reel.title}">
               <i data-lucide="play" class="size-6 fill-current translate-x-0.5" aria-hidden="true"></i>
-            </button>
+            </div>
 
             <!-- Datos inferiores sobreimpresos -->
             <div class="absolute bottom-3.5 left-3.5 right-3.5">
@@ -829,9 +901,10 @@
           <!-- Pie de tarjeta -->
           <div class="flex items-center justify-between p-3.5 border-t border-white/5 bg-[#12151E] text-xs">
             <span class="text-zinc-400 line-clamp-1">${reel.description}</span>
-            <button onclick="openReelModal(${reel.id})" class="btn-press shrink-0 text-amber-400 font-semibold hover:text-amber-300 ms-2">
-              Ver
-            </button>
+            <span class="btn-press shrink-0 text-amber-400 font-semibold hover:text-amber-300 ms-2 inline-flex items-center gap-1">
+              <span>Ver</span>
+              <i data-lucide="play" class="size-3"></i>
+            </span>
           </div>
         </article>
       `).join("");
@@ -943,32 +1016,76 @@
       const badge = document.getElementById("modal-badge");
       const caption = document.getElementById("modal-caption");
       const content = document.getElementById("modal-content");
+      const soundBtn = document.getElementById("modal-sound-btn");
 
       title.textContent = reel.title;
       badge.textContent = reel.category;
-      caption.textContent = `Vistas: ${reel.views} • Duración: ${reel.duration} • Exclusiva LMN Agency`;
+      caption.textContent = `${reel.title} • ${reel.views} vistas • ${reel.duration}`;
 
-      // Simulación de reproductor 9:16 de alta fidelidad
-      content.innerHTML = `
-        <div class="relative aspect-[9/16] h-[65vh] max-h-[600px] overflow-hidden rounded-xl border border-white/20 bg-zinc-950 shadow-2xl">
-          <img src="${reel.videoPoster}" alt="${reel.title}" class="h-full w-full object-cover">
-          <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center p-6">
-            <div class="size-16 rounded-full bg-amber-500/90 text-zinc-950 flex items-center justify-center shadow-xl animate-pulse">
-              <i data-lucide="play" class="size-8 fill-current translate-x-0.5"></i>
+      // Configurar tamaño compacto del diálogo para formato 9:16 (Previene desborde a la izquierda en móvil)
+      const card = document.getElementById("media-modal-card");
+      if (card) {
+        card.className = "relative w-full max-w-[360px] sm:max-w-[400px] max-h-[94vh] rounded-2xl border border-white/15 bg-zinc-950 shadow-2xl flex flex-col overflow-hidden mx-auto my-auto";
+      }
+
+      if (soundBtn) {
+        soundBtn.classList.remove("hidden");
+        soundBtn.classList.add("inline-flex");
+      }
+
+      // Reproductor de video HTML5 real con enlace Cloudflare MP4
+      if (reel.videoUrl) {
+        content.innerHTML = `
+          <div class="reel-video-wrapper relative w-full max-w-[320px] sm:max-w-[350px] aspect-[9/16] max-h-[calc(86vh-110px)] overflow-hidden rounded-xl border border-white/15 bg-black shadow-2xl flex items-center justify-center">
+            <video id="modal-active-video"
+                   src="${reel.videoUrl}"
+                   poster="${reel.videoPoster}"
+                   playsinline
+                   webkit-playsinline
+                   controls
+                   autoplay
+                   loop
+                   preload="auto"
+                   class="w-full h-full object-contain bg-black">
+              Tu navegador no soporta reproducción de video HTML5.
+            </video>
+            <!-- Badge superior flotante 9:16 -->
+            <div class="pointer-events-none absolute top-3 left-3 flex items-center gap-1.5 rounded-full bg-black/70 px-2.5 py-0.5 text-[10px] font-semibold text-white backdrop-blur-md">
+              <span class="size-1.5 rounded-full bg-amber-400"></span>
+              <span>${reel.category}</span>
             </div>
-            <p class="mt-4 text-sm font-bold text-white">${reel.title}</p>
-            <p class="text-xs text-zinc-300 mt-1 max-w-xs">${reel.description}</p>
-            <span class="mt-4 inline-flex items-center gap-1.5 rounded-full bg-white/20 px-3 py-1 text-[11px] font-semibold text-white backdrop-blur-md">
-              <span class="size-2 rounded-full bg-emerald-400"></span>
-              Video simulado preparado para embed Cloudflare Stream
-            </span>
           </div>
-          <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-zinc-300">
-            <span>0:00 / ${reel.duration}</span>
-            <span class="font-bold text-amber-400">LMN Agency 9:16</span>
+        `;
+
+        // Reproducir con manejo seguro de autoplay y mute en navegadores móviles
+        setTimeout(() => {
+          const video = document.getElementById("modal-active-video");
+          if (video) {
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+              playPromise.then(() => {
+                updateSoundButtonState(video.muted);
+              }).catch(() => {
+                // Si el navegador requiere silencio para autoplay
+                video.muted = true;
+                video.play();
+                updateSoundButtonState(true);
+              });
+            }
+          }
+        }, 80);
+      } else {
+        // Fallback elegante con poster si no hay url directa
+        content.innerHTML = `
+          <div class="reel-video-wrapper relative w-full max-w-[320px] sm:max-w-[350px] aspect-[9/16] max-h-[calc(86vh-110px)] overflow-hidden rounded-xl border border-white/15 bg-zinc-950 shadow-2xl flex items-center justify-center">
+            <img src="${reel.videoPoster}" alt="${reel.title}" class="h-full w-full object-cover">
+            <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center p-4">
+              <p class="text-sm font-bold text-white">${reel.title}</p>
+              <p class="text-xs text-zinc-300 mt-1">${reel.description}</p>
+            </div>
           </div>
-        </div>
-      `;
+        `;
+      }
 
       modal.classList.remove("hidden");
       modal.classList.add("flex");
@@ -991,14 +1108,26 @@
       const badge = document.getElementById("modal-badge");
       const caption = document.getElementById("modal-caption");
       const content = document.getElementById("modal-content");
+      const soundBtn = document.getElementById("modal-sound-btn");
 
       title.textContent = titleText;
       badge.textContent = "Book Fotográfico";
-      caption.textContent = "Stephanie Almeida • Resolución Alta • LMN Agency Casting";
+      caption.textContent = "Stephanie Almeida • LMN Agency Casting";
+
+      if (soundBtn) {
+        soundBtn.classList.add("hidden");
+        soundBtn.classList.remove("inline-flex");
+      }
+
+      // Tamaño amplio para visualización de fotografías
+      const card = document.getElementById("media-modal-card");
+      if (card) {
+        card.className = "relative w-full max-w-lg sm:max-w-xl md:max-w-2xl max-h-[94vh] rounded-2xl border border-white/15 bg-zinc-950 shadow-2xl flex flex-col overflow-hidden mx-auto my-auto";
+      }
 
       content.innerHTML = `
-        <div class="max-h-[70vh] flex items-center justify-center">
-          <img src="${url}" alt="${titleText}" class="max-h-[68vh] w-auto rounded-lg object-contain border border-white/10 shadow-2xl">
+        <div class="max-h-[75vh] w-full flex items-center justify-center p-2">
+          <img src="${url}" alt="${titleText}" class="max-h-[72vh] max-w-full w-auto rounded-lg object-contain border border-white/10 shadow-2xl">
         </div>
       `;
 
@@ -1017,13 +1146,39 @@
     function closeMediaModal() {
       const modal = document.getElementById("media-modal");
       if (!modal) return;
+
+      // Pausar y resetear video para detener audio inmediatamente
+      const video = document.getElementById("modal-active-video");
+      if (video) {
+        video.pause();
+        video.removeAttribute("src");
+        video.load();
+      }
+
       modal.classList.add("hidden");
       modal.classList.remove("flex");
       document.body.style.overflow = "";
 
-      // Restaurar foco al elemento que activó el modal (Regla de accesibilidad de skill_ux.md)
+      // Restaurar foco al elemento que activó el modal
       if (lastFocusedElement) {
         lastFocusedElement.focus();
+      }
+    }
+
+    function toggleModalVideoMute() {
+      const video = document.getElementById("modal-active-video");
+      if (!video) return;
+      video.muted = !video.muted;
+      updateSoundButtonState(video.muted);
+    }
+
+    function updateSoundButtonState(isMuted) {
+      const soundText = document.getElementById("modal-sound-text");
+      const soundIcon = document.getElementById("modal-sound-icon");
+      if (soundText) soundText.textContent = isMuted ? "Activar Sonido" : "Silenciar";
+      if (soundIcon) {
+        soundIcon.setAttribute("data-lucide", isMuted ? "volume-x" : "volume-2");
+        if (window.lucide) window.lucide.createIcons();
       }
     }
 
