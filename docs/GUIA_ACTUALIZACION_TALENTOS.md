@@ -1,123 +1,125 @@
-# Guía de Edición y Actualización de Talentos | LMN Agency
+# Guía Centralizada de Talentos y Métricas | LMN Agency
 
-Este documento explica cómo actualizar la información física, fotos, reels y métricas de los talentos, resolviendo las dudas comunes sobre el funcionamiento del código interno.
-
----
-
-## 1. El Misterio de los "Parámetros Físicos / Medidas que no cambiaban"
-
-### ¿Qué ocurría?
-En la página de Stephanie Almeida (`talents/stephanie-almeida-creador-1/index.html`), el archivo contiene **dos lugares** donde aparecen las medidas:
-1. **El marcado HTML estático** (alrededor de las líneas 490 - 512):
-   ```html
-   <dd id="spec-height" class="...">1.65 m</dd>
-   <dd id="spec-age-range" class="...">28 - 35 años</dd>
-   ```
-2. **El objeto de configuración JavaScript `PROFILE_CONFIG`** (alrededor de la línea 882):
-   ```javascript
-   casting: {
-     height: "1.68 m",      // <--- Este valor sobreescribía el HTML al cargar la página
-     ageRange: "22 - 28 años",
-     eyes: "Café oscuro",
-     ...
-   }
-   ```
-
-### ¿Por qué está diseñado así?
-El perfil utiliza una función llamada `renderCastingData()` que se ejecuta cuando el navegador termina de leer el documento (`DOMContentLoaded`). Esta función lee `PROFILE_CONFIG.casting` y **rellena dinámicamente los campos** y el botón de *"Copiar Ficha de Casting al Portapapeles"*. 
-
-Por lo tanto, al cambiar solo el HTML, JavaScript volvía a escribir encima los datos antiguos de `PROFILE_CONFIG`.
-
-### Solución aplicada:
-Se sincronizó `PROFILE_CONFIG.casting` con los valores oficiales actualizados:
-* **Estatura:** `1.65 m`
-* **Rango de edad:** `28 - 35 años`
-* **Ojos:** `Verde`
-* **Piel:** `Blanca`
-* **Calzado:** `23.5 MX / 6.5 US`
-
-> **Regla de oro:** Al actualizar medidas o casting de cualquier talento, asegúrate de actualizar el bloque `PROFILE_CONFIG.casting` dentro del `<script>` al final de su archivo `index.html`.
+Este documento detalla la arquitectura de **Documento Único (Single Source of Truth)** implementada para gestionar a los talentos de LMN Agency sin necesidad de tocar código HTML, y explica la resolución de discrepancias en las métricas entre la portada y los perfiles individuales.
 
 ---
 
-## 2. Diferencia entre Stephanie (Real) y los Otros Talentos (Ficticios / Provisionales)
+## 1. El Sistema de Documento Único (`talents-data.json`)
 
-En el estado actual de la plataforma:
+Para que el equipo de la agencia no tenga que editar archivos HTML de 1,400 líneas, **el 100% de la información de los talentos se administra desde un solo archivo central**:
 
-| Apartado | Stephanie Almeida (Talento Real #1) | Otros 5 Talentos (Claudia, Ana, Rubén, etc.) |
-| :--- | :--- | :--- |
-| **Página individual (EPK)** | Tiene carpeta propia con página completa: `talents/stephanie-almeida-creador-1/index.html` | No tienen carpeta individual aún; sus tarjetas en `index.html` apuntan a `#roster`. |
-| **Fotografías** | WebP originales de alta resolución en `assets/images/stephanie/` | Fotos provisionales de Unsplash. |
-| **Showreels 9:16** | 4 reels reales catalogados con vistas y duraciones exactas | No aplican por el momento. |
-| **Métricas** | Reales: 54.5K Instagram + 21.6K TikTok = 76.1K | Ficticias / Provisionales para maquetación. |
+📁 **Ruta del archivo:** [`assets/data/talents-data.json`](../assets/data/talents-data.json)
 
----
+### ¿Cómo funciona la sincronización automática?
+1. **La Portada (`index.html`):** Lee este JSON al cargar. Suma la audiencia total de todos los talentos, calcula el alcance mensual del colectivo y actualiza las tarjetas del Roster.
+2. **El Perfil de Stephanie (`talents/stephanie-almeida-creador-1/index.html`):** Lee este mismo JSON al cargar. Si cambias su estatura a `1.65 m`, agregas *"Portugués Brasileño"*, subes un nuevo reel o actualizas sus seguidores, la página se re-renderiza automáticamente con esos datos.
+3. **Respaldo Offline (Fail-Safe):** Si el sitio se abre localmente sin servidor web (mediante doble clic `file://`), el perfil mantiene sus valores internos para garantizar que nunca se vea vacío ni rompa la estética.
 
-## 3. Cómo Dar de Alta a un Nuevo Talento Real
-
-Cuando se firme o incorpore un nuevo talento a la agencia:
-
-### Paso 1: Duplicar la plantilla de perfil
-1. Crear una carpeta dentro de `talents/` siguiendo la convención de URLs limpias:
-   `talents/nombre-apellido-creador-X/` (ej. `talents/claudia-zepeda-creador-2/`).
-2. Copiar el `index.html` de Stephanie como base.
-
-### Paso 2: Subir sus fotografías y assets
-* Crear una carpeta en `assets/images/claudia/` con:
-  * `main.webp` (Foto vertical de cartelera 3:4).
-  * `acting-headshot.webp`, `middle-shot.webp`, `full-body.webp`, `editorial.webp`.
-
-### Paso 3: Ajustar `PROFILE_CONFIG` en su `index.html`
-Modificar el objeto con sus datos reales:
-* Nombre, slug y títulos artísticos.
-* Redes sociales y enlaces.
-* Bloque `casting`: Estatura, tallas, idiomas, acentos y habilidades.
-* Bloque `reels`: Enlaces a videos verticales y vistas.
-
-### Paso 4: Registrar al talento en `assets/data/talents-data.json`
-Agregar su registro en la lista de talentos para que sus seguidores se sumen automáticamente a la métrica global del colectivo.
-
-### Paso 5: Activar su tarjeta en el Roster de `index.html`
-Cambiar el enlace de su tarjeta para que apunte a su nueva ruta:
-`href="./talents/claudia-zepeda-creador-2/index.html"`.
+> **En resumen:** Ya no necesitas tocar ni una sola línea de HTML en `index.html` ni en el perfil de Stephanie. Solo editas `talents-data.json`.
 
 ---
 
-## 4. Modificación Manual de Métricas (Variables Locales)
+## 2. ¿Por qué diferían las métricas entre el Index Principal y cada Talento?
 
-Si la agencia **aún no tiene configurado el script `sync_metrics.py`** o los tokens de API de Meta/TikTok, las métricas de cualquier talento se pueden editar directamente mediante variables JavaScript dentro de su archivo `index.html`:
+Durante la revisión técnica se detectaron tres motivos exactos por los cuales los números no coincidían:
 
-### Ubicación: En `talents/stephanie-almeida-creador-1/index.html` (línea ~807)
+### Motivo A: Desfase entre el HTML estático maquetado y el JSON previo
+En `index.html` las tarjetas tenían los valores oficiales del dossier/PDF, mientras que el JSON provisional tenía cifras aproximadas. **Ya quedaron igualadas al 100%:**
 
-```javascript
-// 1. Seguidores en botones de redes sociales:
-socials: [
-  {
-    platform: "tiktok",
-    name: "TikTok",
-    handle: "@stephanie_style8",
-    url: "https://www.tiktok.com/@stephanie_style8",
-    followers: "21.6K", // <--- Modificar aquí directamente
-    highlight: "Lifestyle"
+| Talento | En la Portada (`index.html`) | En `talents-data.json` (Anterior) | Estado Actual Sincronizado |
+| :--- | :--- | :--- | :--- |
+| **Stephanie Almeida** | IG: 54.5K • TK: 21.6K (76.1K+) | IG: 54.5K • TK: 22.1K (76.6K) | **Sincronizado:** 54.5K IG + 22.1K TK = **76.6K Total** |
+| **Claudia Zepeda** | IG: 224K • TK: 222.3K (446K+) | IG: 186K • TK: 260K | **Sincronizado:** 224K IG + 222.3K TK = **446.3K Total** |
+| **Ana Tena** | IG: 1.1M • TK: 7.3M (8.4M+) | IG: 1.4M • TK: 7.0M | **Sincronizado:** 1.1M IG + 7.3M TK = **8.4M Total** |
+| **Rubén Saucedo** | IG: 34.4K • TK: 288K (322K+) | IG: 92K • TK: 230K | **Sincronizado:** 34.4K IG + 288K TK = **322.4K Total** |
+| **Trinidad González**| IG: 88.9K • TK: 288K (376K+) | IG: 116K • TK: 260K | **Sincronizado:** 88.9K IG + 288K TK = **376.9K Total** |
+| **Frida Jiser** | IG: 16K • TK: 109.4K (125K+) | IG: 45K • TK: 80K | **Sincronizado:** 16K IG + 109.4K TK = **125.4K Total** |
+
+### Motivo B: La edición manual reciente de Stephanie
+Cuando actualizaste TikTok de Stephanie a `22.1K` en el JSON, la sumatoria subió a `76.6K`, pero los textos del HTML seguían mostrando `21.6K` y `76.1K+`. Con la nueva conexión automática, el HTML ahora lee directamente los `22,100` y calcula `76.6K+` en ambos sitios.
+
+### Motivo C: Concepto de "Alcance Mensual Colectivo" vs "Promedio Mensual de Stephanie"
+* **En la Portada:** Se muestra **+60M Alcance Mensual**. Esto representa el **volumen total de reproducciones combinadas** de videos verticales de todos los 6 talentos de la agencia al mes.
+* **En el Hero de Stephanie:** Se muestra **34.4K Promedio Mensual**. Esto se refiere al **promedio de reproducciones orgánicas por video individual** en su perfil personal de TikTok/Reels, no al tráfico global de la agencia.
+
+---
+
+## 3. Guía de Edición Campo por Campo en `talents-data.json`
+
+Para actualizar a Stephanie (o a cualquier talento), abre [`assets/data/talents-data.json`](../assets/data/talents-data.json) y modifica el bloque correspondiente:
+
+```json
+{
+  "id": "stephanie-almeida",
+  "name": "Stephanie Almeida",
+  
+  // 1. Redes Sociales y Métricas (Se actualizan en Portada y Perfil)
+  "networks": {
+    "instagram": {
+      "handle": "stephaniesk8",
+      "followers": 54500,
+      "engagementRate": 11.1
+    },
+    "tiktok": {
+      "handle": "stephanie_style8",
+      "followers": 22100,
+      "likes": 88300
+    }
   },
-  {
-    platform: "instagram",
-    name: "Instagram",
-    handle: "@stephaniesk8",
-    url: "https://www.instagram.com/stephaniesk8",
-    followers: "54.5K", // <--- Modificar aquí directamente
-    highlight: "Actuación & Moda"
-  }
-],
 
-// 2. Tarjetas de métricas del Hero:
-metrics: {
-  totalFollowers: "76.1K+", // <--- Modificar Audiencia Total
-  monthlyViews: "34.4K",     // <--- Modificar Promedio Mensual
-  engagementRate: "11.1%",   // <--- Modificar Engagement Rate
-  primaryPlatforms: "TikTok • Instagram • YouTube Shorts"
+  // 2. Ficha Técnica de Casting (Se actualiza en su EPK)
+  "casting": {
+    "height": "1.65 m",
+    "ageRange": "28 - 35 años",
+    "eyes": "Verde",
+    "hair": "Castaño oscuro",
+    "skin": "Blanca",
+    "shoes": "23.5 MX / 6.5 US",
+    "languages": [
+      { "name": "Portugués Brasileño", "level": "Nativo" },
+      { "name": "Español", "level": "Avanzado" },
+      { "name": "Inglés", "level": "Intermedio" }
+    ],
+    "accents": [
+      "Español con acento extranjero",
+      "Portugués Brasileño (nativo)"
+    ],
+    "skills": [
+      "Actuación dramática",
+      "Comedia situacional e improv",
+      "Baile con ritmos latinos"
+    ],
+    "brands": [
+      "Puma México",
+      "Telcel",
+      "Tena",
+      "Blim"
+    ]
+  },
+
+  // 3. Showreels de Video 9:16
+  "reels": [
+    {
+      "id": 1,
+      "title": "Miniso 'Encuentra tu momento'",
+      "category": "Anuncio para Miniso",
+      "views": "250K",
+      "duration": "0:30",
+      "videoPoster": "../../assets/images/stephanie/Portada Video Miniso.webp",
+      "videoUrl": "https://pub-...r2.dev/Video Miniso.mp4"
+    }
+  ],
+
+  // 4. Book Fotográfico
+  "gallery": [
+    {
+      "id": "g1",
+      "type": "Primer Plano (Acting Headshot)",
+      "subtitle": "Enfoque en expresividad y mirada.",
+      "url": "../../assets/images/stephanie/Stephanie Almeida dress.webp"
+    }
+  ]
 }
 ```
 
-Al modificar cualquiera de estos valores en el archivo, se reflejarán instantáneamente en la página sin tocar la estructura HTML ni depender de scripts externos.
-
+Al guardar este archivo JSON, los cambios se reflejan inmediatamente en la web.

@@ -12,6 +12,11 @@
       "slug": "stephanie-almeida-creador-1",
       "profilePath": "./talents/stephanie-almeida-creador-1/index.html",
       "categories": ["actuacion", "lifestyle", "comedia"],
+      "bio": "Actriz con sólida presencia en escena e impacto digital. Especializada en comedia de situaciones cotidianas, monólogos contemporáneos y narrativa audiovisual de alto enganche. Su versatilidad interpretativa y carisma orgánico conectan con audiencias jóvenes y marcas de primer nivel en México y Latinoamérica.",
+      "contact": {
+        "email": "booking@lmnagency.com",
+        "whatsapp": "5215500000000"
+      },
       "networks": {
         "instagram": {
           "handle": "stephaniesk8",
@@ -26,6 +31,97 @@
           "likes": 88300
         }
       },
+      "monthlyReach": 2500000,
+      "casting": {
+        "height": "1.65 m",
+        "ageRange": "28 - 35 años",
+        "eyes": "Verde",
+        "hair": "Castaño oscuro",
+        "skin": "Blanca",
+        "shoes": "23.5 MX / 6.5 US",
+        "languages": [
+          { "name": "Portugués Brasileño", "level": "Nativo" },
+          { "name": "Español", "level": "Avanzado" },
+          { "name": "Inglés", "level": "Intermedio" }
+        ],
+        "accents": [
+          "Español con acento extranjero",
+          "Portugués Brasileño (nativo)"
+        ],
+        "skills": [
+          "Actuación dramática",
+          "Comedia situacional e improvisación cómica (Improv)",
+          "Baile con ritmos latinos",
+          "Conducción y host de eventos en vivo",
+          "Manejo de vehículo estándar y automático",
+          "Manejo de moto eléctrica",
+          "Skateboarding"
+        ],
+        "brands": [
+          "Puma México",
+          "Telcel",
+          "Tena",
+          "Blim"
+        ]
+      },
+      "reels": [
+        {
+          "id": 1,
+          "title": "Miniso 'Encuentra tu momento'",
+          "category": "Anuncio para Miniso",
+          "views": "250K",
+          "duration": "0:30",
+          "videoPoster": "../../assets/images/stephanie/Portada%20Video%20Miniso.webp",
+          "videoUrl": "https://pub-c970afdabc634009b751fd9609b9149a.r2.dev/Video%20Miniso.mp4",
+          "description": "Video promocional para la marca Miniso"
+        },
+        {
+          "id": 2,
+          "title": "Telcel - Iphone 15",
+          "category": "Anuncio para Telcel",
+          "views": "450K",
+          "duration": "0:30",
+          "videoPoster": "../../assets/images/stephanie/Portada%20Telcel.webp",
+          "videoUrl": "https://pub-c970afdabc634009b751fd9609b9149a.r2.dev/Telcel%20-%20Iphone.mp4",
+          "description": "Anuncio Iphone X -Telcel"
+        },
+        {
+          "id": 3,
+          "title": "Videoblog - Lifestyle",
+          "category": "Lifestyle",
+          "views": "220K",
+          "duration": "0:52",
+          "videoPoster": "../../assets/images/stephanie/Portada%20Tik%20Tok.webp",
+          "videoUrl": "https://pub-c970afdabc634009b751fd9609b9149a.r2.dev/Tik%20Tok%20Stephanie%20Almeida.mp4",
+          "description": "Vlog donde se muestran experiencias personales en México"
+        }
+      ],
+      "gallery": [
+        {
+          "id": "g1",
+          "type": "Primer Plano (Acting Headshot)",
+          "subtitle": "Enfoque en expresividad, mirada y matices faciales.",
+          "url": "../../assets/images/stephanie/Stephanie%20Almeida%20dress.webp"
+        },
+        {
+          "id": "g2",
+          "type": "Plano Medio (Expresivo)",
+          "subtitle": "Postura natural, calidez y soltura ante cámara.",
+          "url": "../../assets/images/stephanie/Stephanie%20Almeida%20middle%20shot.webp"
+        },
+        {
+          "id": "g3",
+          "type": "Cuerpo Entero (Casting Posture)",
+          "subtitle": "Proporciones anatómicas, silueta y presencia escénica.",
+          "url": "../../assets/images/stephanie/Stephanie%20Almeida%20full%20body.webp"
+        },
+        {
+          "id": "g4",
+          "type": "Editorial (Black Dress)",
+          "subtitle": "Estética comercial para campañas de moda, alfombra roja y lifestyle.",
+          "url": "../../assets/images/stephanie/Stephanie%20Almeida%20black%20dress.webp"
+        }
+      ],
       "monthlyReach": 2500000
     },
     {
@@ -40,13 +136,13 @@
         "instagram": {
           "handle": "clauzepedav",
           "url": "https://www.instagram.com/clauzepedav/",
-          "followers": 186000,
+          "followers": 224000,
           "engagementRate": 4.8
         },
         "tiktok": {
           "handle": "clauzepedav",
           "url": "https://www.tiktok.com/@clauzepedav",
-          "followers": 260000,
+          "followers": 222300,
           "likes": 2100000
         }
       },
@@ -64,13 +160,13 @@
         "instagram": {
           "handle": "ana_tenan",
           "url": "https://www.instagram.com/ana_tenan/",
-          "followers": 1400000,
+          "followers": 1100000,
           "engagementRate": 6.2
         },
         "tiktok": {
           "handle": "ana_tenan",
           "url": "https://www.tiktok.com/@ana_tenan",
-          "followers": 7000000,
+          "followers": 7300000,
           "likes": 85000000
         }
       },
@@ -88,13 +184,13 @@
         "instagram": {
           "handle": "rubensaucedob",
           "url": "https://www.instagram.com/rubensaucedob/",
-          "followers": 92000,
+          "followers": 34400,
           "engagementRate": 8.5
         },
         "tiktok": {
           "handle": "rubensaucedob",
           "url": "https://www.tiktok.com/@rubensaucedob",
-          "followers": 230000,
+          "followers": 288000,
           "likes": 3900000
         }
       },
@@ -112,13 +208,13 @@
         "instagram": {
           "handle": "trinidad.glez",
           "url": "https://www.instagram.com/trinidad.glez/",
-          "followers": 116000,
+          "followers": 88900,
           "engagementRate": 5.1
         },
         "tiktok": {
           "handle": "trinidad.glez",
           "url": "https://www.tiktok.com/@trinidad.glez",
-          "followers": 260000,
+          "followers": 288000,
           "likes": 2800000
         }
       },
@@ -136,13 +232,13 @@
         "instagram": {
           "handle": "fridajiser",
           "url": "https://www.instagram.com/fridajiser/",
-          "followers": 45000,
+          "followers": 16000,
           "engagementRate": 7.4
         },
         "tiktok": {
           "handle": "fridajiser",
           "url": "https://www.tiktok.com/@fridajiser",
-          "followers": 80000,
+          "followers": 109400,
           "likes": 950000
         }
       },

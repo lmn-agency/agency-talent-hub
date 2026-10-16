@@ -1002,7 +1002,32 @@
         const totalAudience = ig + tk;
         const er = steph.networks?.instagram?.engagementRate;
 
-        // 1. Actualizar Hero
+        // 1. Sincronizar Ficha de Casting desde el JSON
+        if (steph.casting) {
+          PROFILE_CONFIG.casting = steph.casting;
+          renderCastingData();
+        }
+
+        // 2. Sincronizar Showreels 9:16 desde el JSON
+        if (steph.reels && steph.reels.length > 0) {
+          PROFILE_CONFIG.reels = steph.reels;
+          renderReels();
+        }
+
+        // 3. Sincronizar Book Fotográfico desde el JSON
+        if (steph.gallery && steph.gallery.length > 0) {
+          PROFILE_CONFIG.gallery = steph.gallery;
+          renderGallery();
+        }
+
+        // 4. Sincronizar Biografía Editorial
+        if (steph.bio) {
+          PROFILE_CONFIG.bio = steph.bio;
+          const elBio = document.getElementById("talent-bio");
+          if (elBio) elBio.textContent = steph.bio;
+        }
+
+        // 5. Sincronizar Métricas y Redes Sociales
         const elFollowers = document.getElementById("stat-followers");
         const elEngagement = document.getElementById("stat-engagement");
         if (elFollowers && totalAudience > 0) {
@@ -1012,17 +1037,20 @@
           elEngagement.textContent = er + "%";
         }
 
-        // 2. Actualizar botones de redes sociales en el header
         if (PROFILE_CONFIG.socials) {
           const tkObj = PROFILE_CONFIG.socials.find(s => s.platform === 'tiktok');
           const igObj = PROFILE_CONFIG.socials.find(s => s.platform === 'instagram');
           if (tkObj && tk > 0) tkObj.followers = formatCompactNum(tk);
           if (igObj && ig > 0) igObj.followers = formatCompactNum(ig);
           renderSocials();
-          if (window.lucide) window.lucide.createIcons();
+        }
+
+        // 6. Actualizar iconos de Lucide para elementos dinámicos
+        if (window.lucide) {
+          window.lucide.createIcons();
         }
       } catch (err) {
-        // En caso de abrir directamente por file:// usa los datos locales de PROFILE_CONFIG
+        // En caso de abrir directamente por file:// sin servidor local, mantiene PROFILE_CONFIG
       }
     }
 
