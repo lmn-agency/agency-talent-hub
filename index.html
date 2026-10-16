@@ -473,9 +473,9 @@
                   Stephanie Almeida
                 </h3>
                 <div class="flex items-center gap-2 text-xs font-semibold text-zinc-300 pt-0.5">
-                  <span class="tabular-numbers">76.1K+ Audiencia</span>
+                  <span id="roster-stephanie-audience" class="tabular-numbers">76.1K+ Audiencia</span>
                   <span>•</span>
-                  <span class="tabular-numbers text-emerald-400">11.1% ER</span>
+                  <span id="roster-stephanie-er" class="tabular-numbers text-emerald-400">11.1% ER</span>
                 </div>
               </div>
 
@@ -509,7 +509,7 @@
                       <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.11V9.38a6.34 6.34 0 0 0-.86-.06A6.33 6.33 0 0 0 3 15.65a6.34 6.34 0 0 0 9.17 5.62 6.27 6.27 0 0 0 3.6-5.61V8.71a8.28 8.28 0 0 0 4.82 1.54V6.79a4.85 4.85 0 0 1-1-.1z"/>
                     </svg>
                     <span>TikTok</span>
-                    <span class="rounded bg-white/10 px-1 py-0.2 text-[9px] font-mono text-amber-300">21.6K</span>
+                    <span id="roster-stephanie-tiktok" class="rounded bg-white/10 px-1 py-0.2 text-[9px] font-mono text-amber-300">21.6K</span>
                   </a>
                   <!-- Instagram -->
                   <a href="https://www.instagram.com/stephaniesk8" target="_blank" rel="noopener noreferrer"
@@ -521,7 +521,7 @@
                       <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
                     </svg>
                     <span>Instagram</span>
-                    <span class="rounded bg-white/10 px-1 py-0.2 text-[9px] font-mono text-amber-300">54.5K</span>
+                    <span id="roster-stephanie-instagram" class="rounded bg-white/10 px-1 py-0.2 text-[9px] font-mono text-amber-300">54.5K</span>
                   </a>
                 </div>
               </div>
@@ -1379,6 +1379,25 @@
         }
         if (elExclusivity && data.collective?.exclusivityPercentage) {
           elExclusivity.textContent = data.collective.exclusivityPercentage + "%";
+        }
+
+        // Actualizar tarjeta de Stephanie en el Roster desde la fuente central
+        const steph = talents.find(t => t.id === 'stephanie-almeida');
+        if (steph) {
+          const sIg = steph.networks?.instagram?.followers || 0;
+          const sTk = steph.networks?.tiktok?.followers || 0;
+          const sAud = sIg + sTk;
+          const sEr = steph.networks?.instagram?.engagementRate;
+
+          const elAud = document.getElementById("roster-stephanie-audience");
+          const elEr = document.getElementById("roster-stephanie-er");
+          const elTk = document.getElementById("roster-stephanie-tiktok");
+          const elIg = document.getElementById("roster-stephanie-instagram");
+
+          if (elAud && sAud > 0) elAud.textContent = formatMetricNumber(sAud) + " Audiencia";
+          if (elEr && sEr) elEr.textContent = sEr + "% ER";
+          if (elTk && sTk > 0) elTk.textContent = formatMetricNumber(sTk).replace("+", "");
+          if (elIg && sIg > 0) elIg.textContent = formatMetricNumber(sIg).replace("+", "");
         }
       } catch (e) {
         // En caso de que se abra directamente con protocolo file:// sin servidor local

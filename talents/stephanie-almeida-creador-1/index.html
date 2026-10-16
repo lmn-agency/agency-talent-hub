@@ -973,13 +973,64 @@
         window.lucide.createIcons();
       }
 
-      // 7. Configurar accesibilidad de teclado (Cerrar modal con ESC)
+      // 7. Sincronizar automáticamente con la fuente central de métricas (talents-data.json)
+      syncFromCentralData();
+
+      // 8. Configurar accesibilidad de teclado (Cerrar modal con ESC)
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") {
           closeMediaModal();
         }
       });
     });
+
+    /**
+     * SINCRONIZACIÓN AUTOMÁTICA CON LA FUENTE ÚNICA DE VERDAD (talents-data.json)
+     * Si modificas assets/data/talents-data.json, esta función actualiza automáticamente
+     * las métricas de Stephanie en pantalla sin tener que editar este HTML.
+     */
+    async function syncFromCentralData() {
+      try {
+        const response = await fetch('../../assets/data/talents-data.json');
+        if (!response.ok) return;
+        const data = await response.json();
+        const steph = data.talents?.find(t => t.id === 'stephanie-almeida' || t.slug === 'stephanie-almeida-creador-1');
+        if (!steph) return;
+
+        const ig = steph.networks?.instagram?.followers || 0;
+        const tk = steph.networks?.tiktok?.followers || 0;
+        const totalAudience = ig + tk;
+        const er = steph.networks?.instagram?.engagementRate;
+
+        // 1. Actualizar Hero
+        const elFollowers = document.getElementById("stat-followers");
+        const elEngagement = document.getElementById("stat-engagement");
+        if (elFollowers && totalAudience > 0) {
+          elFollowers.textContent = formatCompactNum(totalAudience) + "+";
+        }
+        if (elEngagement && er) {
+          elEngagement.textContent = er + "%";
+        }
+
+        // 2. Actualizar botones de redes sociales en el header
+        if (PROFILE_CONFIG.socials) {
+          const tkObj = PROFILE_CONFIG.socials.find(s => s.platform === 'tiktok');
+          const igObj = PROFILE_CONFIG.socials.find(s => s.platform === 'instagram');
+          if (tkObj && tk > 0) tkObj.followers = formatCompactNum(tk);
+          if (igObj && ig > 0) igObj.followers = formatCompactNum(ig);
+          renderSocials();
+          if (window.lucide) window.lucide.createIcons();
+        }
+      } catch (err) {
+        // En caso de abrir directamente por file:// usa los datos locales de PROFILE_CONFIG
+      }
+    }
+
+    function formatCompactNum(n) {
+      if (n >= 1000000) return (n / 1000000).toFixed(1).replace(/\.0$/, "") + "M";
+      if (n >= 1000) return (n / 1000).toFixed(1).replace(/\.0$/, "") + "K";
+      return n.toString();
+    }
 
     /**
      * RENDERIZAR MÉTRICAS CLAVE MANUALES (HERO)
