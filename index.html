@@ -353,7 +353,7 @@
               <span class="text-xs font-semibold uppercase tracking-wider text-amber-400">Audiencia Total</span>
               <i data-lucide="users-2" class="size-5 text-amber-400" aria-hidden="true"></i>
             </div>
-            <div class="text-3xl sm:text-4xl font-extrabold text-white tabular-numbers">
+            <div id="stat-global-audience" class="text-3xl sm:text-4xl font-extrabold text-white tabular-numbers">
               +12M
             </div>
             <p class="mt-2 text-xs text-zinc-400">
@@ -366,7 +366,7 @@
               <span class="text-xs font-semibold uppercase tracking-wider text-amber-400">Alcance Mensual</span>
               <i data-lucide="trending-up" class="size-5 text-amber-400" aria-hidden="true"></i>
             </div>
-            <div class="text-3xl sm:text-4xl font-extrabold text-white tabular-numbers">
+            <div id="stat-global-reach" class="text-3xl sm:text-4xl font-extrabold text-white tabular-numbers">
               +60M
             </div>
             <p class="mt-2 text-xs text-zinc-400">
@@ -379,7 +379,7 @@
               <span class="text-xs font-semibold uppercase tracking-wider text-amber-400">Exclusividad Legal</span>
               <i data-lucide="shield-check" class="size-5 text-emerald-400" aria-hidden="true"></i>
             </div>
-            <div class="text-3xl sm:text-4xl font-extrabold text-emerald-400 tabular-numbers">
+            <div id="stat-global-exclusivity" class="text-3xl sm:text-4xl font-extrabold text-emerald-400 tabular-numbers">
               100%
             </div>
             <p class="mt-2 text-xs text-zinc-400">
@@ -1341,7 +1341,62 @@
       if (window.lucide) {
         window.lucide.createIcons();
       }
+
+      // 3. Cargar y consolidar métricas de talentos desde la fuente de verdad JSON
+      loadConsolidatedMetrics();
     });
+
+    /**
+     * CÁLCULO DINÁMICO DE MÉTRICAS CONSOLIDADAS DEL COLECTIVO
+     * Suma Instagram + TikTok y alcance mensual de todos los talentos
+     */
+    async function loadConsolidatedMetrics() {
+      try {
+        const response = await fetch('./assets/data/talents-data.json');
+        if (!response.ok) return;
+        const data = await response.json();
+        const talents = data.talents || [];
+
+        let totalAudience = 0;
+        let totalMonthlyReach = 0;
+
+        talents.forEach(talent => {
+          const ig = talent.networks?.instagram?.followers || 0;
+          const tk = talent.networks?.tiktok?.followers || 0;
+          totalAudience += (ig + tk);
+          totalMonthlyReach += (talent.monthlyReach || 0);
+        });
+
+        const elAudience = document.getElementById("stat-global-audience");
+        const elReach = document.getElementById("stat-global-reach");
+        const elExclusivity = document.getElementById("stat-global-exclusivity");
+
+        if (elAudience && totalAudience > 0) {
+          elAudience.textContent = formatMetricNumber(totalAudience);
+        }
+        if (elReach && totalMonthlyReach > 0) {
+          elReach.textContent = formatMetricNumber(totalMonthlyReach);
+        }
+        if (elExclusivity && data.collective?.exclusivityPercentage) {
+          elExclusivity.textContent = data.collective.exclusivityPercentage + "%";
+        }
+      } catch (e) {
+        // En caso de que se abra directamente con protocolo file:// sin servidor local
+        console.info("LMN Hub: Utilizando métricas base estáticas.");
+      }
+    }
+
+    function formatMetricNumber(val) {
+      if (val >= 1000000) {
+        const m = (val / 1000000).toFixed(1).replace(/\.0$/, "");
+        return `+${m}M`;
+      }
+      if (val >= 1000) {
+        const k = (val / 1000).toFixed(0);
+        return `+${k}K`;
+      }
+      return `+${val}`;
+    }
 
     /**
      * FILTRO DE TALENTOS POR NICHO EN EL ROSTER

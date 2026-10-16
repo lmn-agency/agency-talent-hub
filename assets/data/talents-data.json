@@ -1,0 +1,152 @@
+{
+  "updatedAt": "2026-10-16T14:50:00Z",
+  "collective": {
+    "exclusivityPercentage": 100
+  },
+  "talents": [
+    {
+      "id": "stephanie-almeida",
+      "name": "Stephanie Almeida",
+      "status": "active",
+      "isReal": true,
+      "slug": "stephanie-almeida-creador-1",
+      "profilePath": "./talents/stephanie-almeida-creador-1/index.html",
+      "categories": ["actuacion", "lifestyle", "comedia"],
+      "networks": {
+        "instagram": {
+          "handle": "stephaniesk8",
+          "url": "https://www.instagram.com/stephaniesk8",
+          "followers": 54500,
+          "engagementRate": 11.1
+        },
+        "tiktok": {
+          "handle": "stephanie_style8",
+          "url": "https://www.tiktok.com/@stephanie_style8",
+          "followers": 21600,
+          "likes": 340000
+        }
+      },
+      "monthlyReach": 2500000
+    },
+    {
+      "id": "claudia-zepeda",
+      "name": "Claudia Zepeda",
+      "status": "active",
+      "isReal": false,
+      "slug": null,
+      "profilePath": null,
+      "categories": ["actuacion", "lifestyle"],
+      "networks": {
+        "instagram": {
+          "handle": "clauzepedav",
+          "url": "https://www.instagram.com/clauzepedav/",
+          "followers": 186000,
+          "engagementRate": 4.8
+        },
+        "tiktok": {
+          "handle": "clauzepedav",
+          "url": "https://www.tiktok.com/@clauzepedav",
+          "followers": 260000,
+          "likes": 2100000
+        }
+      },
+      "monthlyReach": 3800000
+    },
+    {
+      "id": "ana-tena",
+      "name": "Ana Tena",
+      "status": "active",
+      "isReal": false,
+      "slug": null,
+      "profilePath": null,
+      "categories": ["actuacion", "lifestyle"],
+      "networks": {
+        "instagram": {
+          "handle": "ana_tenan",
+          "url": "https://www.instagram.com/ana_tenan/",
+          "followers": 1400000,
+          "engagementRate": 6.2
+        },
+        "tiktok": {
+          "handle": "ana_tenan",
+          "url": "https://www.tiktok.com/@ana_tenan",
+          "followers": 7000000,
+          "likes": 85000000
+        }
+      },
+      "monthlyReach": 45000000
+    },
+    {
+      "id": "ruben-saucedo",
+      "name": "Rubén Saucedo",
+      "status": "active",
+      "isReal": false,
+      "slug": null,
+      "profilePath": null,
+      "categories": ["comedia"],
+      "networks": {
+        "instagram": {
+          "handle": "rubensaucedob",
+          "url": "https://www.instagram.com/rubensaucedob/",
+          "followers": 92000,
+          "engagementRate": 8.5
+        },
+        "tiktok": {
+          "handle": "rubensaucedob",
+          "url": "https://www.tiktok.com/@rubensaucedob",
+          "followers": 230000,
+          "likes": 3900000
+        }
+      },
+      "monthlyReach": 2400000
+    },
+    {
+      "id": "trinidad-gonzalez",
+      "name": "Trinidad González",
+      "status": "active",
+      "isReal": false,
+      "slug": null,
+      "profilePath": null,
+      "categories": ["lifestyle"],
+      "networks": {
+        "instagram": {
+          "handle": "trinidad.glez",
+          "url": "https://www.instagram.com/trinidad.glez/",
+          "followers": 116000,
+          "engagementRate": 5.1
+        },
+        "tiktok": {
+          "handle": "trinidad.glez",
+          "url": "https://www.tiktok.com/@trinidad.glez",
+          "followers": 260000,
+          "likes": 2800000
+        }
+      },
+      "monthlyReach": 2900000
+    },
+    {
+      "id": "frida-jiser",
+      "name": "Frida Jiser",
+      "status": "active",
+      "isReal": false,
+      "slug": null,
+      "profilePath": null,
+      "categories": ["actuacion", "lifestyle"],
+      "networks": {
+        "instagram": {
+          "handle": "fridajiser",
+          "url": "https://www.instagram.com/fridajiser/",
+          "followers": 45000,
+          "engagementRate": 7.4
+        },
+        "tiktok": {
+          "handle": "fridajiser",
+          "url": "https://www.tiktok.com/@fridajiser",
+          "followers": 80000,
+          "likes": 950000
+        }
+      },
+      "monthlyReach": 1100000
+    }
+  ]
+}

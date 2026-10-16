@@ -810,7 +810,7 @@
           name: "TikTok",
           handle: "@stephanie_style8",
           url: "https://www.tiktok.com/@stephanie_style8",
-          followers: "21.6K",
+          followers: "22.1K",
           highlight: "Lifestyle"
         },
         {
@@ -880,13 +880,14 @@
 
       // 6. Ficha de Casting y Especificaciones Físicas
       casting: {
-        height: "1.68 m",
-        ageRange: "22 - 28 años",
-        eyes: "Café oscuro",
+        height: "1.65 m",
+        ageRange: "28 - 35 años",
+        eyes: "Verde",
         hair: "Castaño oscuro",
-        skin: "Trigueña / Latina cálida",
-        shoes: "24.5 MX / 7.5 US",
+        skin: "Blanca",
+        shoes: "23.5 MX / 6.5 US",
         languages: [
+          { name: "Portugués Brasileño", level: "Nativo" },
           { name: "Español", level: "Avanzado" },
           { name: "Inglés", level: "Intermedio" }
         ],
@@ -955,6 +956,9 @@
       // 2. Renderizar Redes Sociales Oficiales
       renderSocials();
 
+      // 2.1 Renderizar Métricas Clave Manuales (Hero)
+      renderMetrics();
+
       // 3. Renderizar Showreel 9:16
       renderReels();
 
@@ -976,6 +980,22 @@
         }
       });
     });
+
+    /**
+     * RENDERIZAR MÉTRICAS CLAVE MANUALES (HERO)
+     * Permite editar variables fácilmente desde PROFILE_CONFIG.metrics
+     */
+    function renderMetrics() {
+      if (!PROFILE_CONFIG.metrics) return;
+      const m = PROFILE_CONFIG.metrics;
+      const elFollowers = document.getElementById("stat-followers");
+      const elViews = document.getElementById("stat-views");
+      const elEngagement = document.getElementById("stat-engagement");
+
+      if (elFollowers && m.totalFollowers) elFollowers.textContent = m.totalFollowers;
+      if (elViews && m.monthlyViews) elViews.textContent = m.monthlyViews;
+      if (elEngagement && m.engagementRate) elEngagement.textContent = m.engagementRate;
+    }
 
     /**
      * RENDERIZAR REDES SOCIALES OFICIALES
