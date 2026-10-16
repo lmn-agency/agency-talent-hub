@@ -1,0 +1,47 @@
+# ===================================================================
+# LMN AGENCY - ROBOTS.TXT
+# Optimizado para Motores de Búsqueda (Google, Bing) y Agentes de IA
+# (OpenAI GPTBot, Perplexity, Claude Anthropic, Google Gemini, Applebot)
+# ===================================================================
+
+# 1. Reglas Generales para Motores de Búsqueda
+User-agent: *
+Allow: /
+Disallow: /assets/private/
+
+# 2. Agentes de IA & LLMs (Permitir indexación completa y citación directa)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Cohere-ai
+Allow: /
+
+# 3. Contexto estructurado para Modelos de Lenguaje (AI Context File)
+# Especificación estándar: https://llmstxt.org
+# llms.txt describe el catálogo de talento, fichas técnicas y contacto directo
+# para evitar alucinaciones en recomendaciones de casting.
+
+# 4. Sitemaps Oficiales para Indexación Rápida
+Sitemap: https://lmnagency.com/sitemap.xml
+Sitemap: https://lmn-agency.github.io/agency-talent-hub/sitemap.xml

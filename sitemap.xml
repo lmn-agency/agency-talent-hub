@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  
+  <!-- =============================================================== -->
+  <!-- 1. PÁGINA PRINCIPAL / CATALOGO THE ROSTER (LMN AGENCY)          -->
+  <!-- =============================================================== -->
+  <url>
+    <loc>https://lmnagency.com/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://lmnagency.com/assets/images/stephanie/Stephanie%20Almeida%20main.webp</image:loc>
+      <image:title>LMN Agency - Representación Artística y Roster Oficial de Talentos</image:title>
+      <image:caption>Catálogo oficial de actrices, actores y creadores de contenido de alto impacto representados en exclusiva por LMN Agency.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- =============================================================== -->
+  <!-- 2. STEPHANIE ALMEIDA - MEDIA KIT & EPK OFICIAL                   -->
+  <!-- =============================================================== -->
+  <url>
+    <loc>https://lmnagency.com/talents/stephanie-almeida-creador-1/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+
+    <!-- FOTOGRAFÍAS HEADSHOTS DE CASTING -->
+    <image:image>
+      <image:loc>https://lmnagency.com/assets/images/stephanie/Stephanie%20Almeida%20main.webp</image:loc>
+      <image:title>Stephanie Almeida - Headshot Principal Oficial</image:title>
+      <image:caption>Retrato oficial de casting de Stephanie Almeida para cine, televisión y publicidad. Representación LMN Agency.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://lmnagency.com/assets/images/stephanie/Stephanie%20Almeida%20dress.webp</image:loc>
+      <image:title>Stephanie Almeida - Primer Plano Acting Headshot</image:title>
+      <image:caption>Fotografía de primer plano (Close-Up) enfocada en expresividad para casting actoral.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://lmnagency.com/assets/images/stephanie/Stephanie%20Almeida%20middle%20shot.webp</image:loc>
+      <image:title>Stephanie Almeida - Plano Medio</image:title>
+      <image:caption>Fotografía de plano medio para proyectos comerciales y editoriales.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://lmnagency.com/assets/images/stephanie/Stephanie%20Almeida%20full%20body.webp</image:loc>
+      <image:title>Stephanie Almeida - Cuerpo Entero Casting</image:title>
+      <image:caption>Fotografía de cuerpo entero para análisis anatómico y presencia escénica.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://lmnagency.com/assets/images/stephanie/Stephanie%20Almeida%20black%20dress.webp</image:loc>
+      <image:title>Stephanie Almeida - Editorial Black Dress</image:title>
+      <image:caption>Fotografía editorial de moda y estilo para marcas de lujo y alfombra roja.</image:caption>
+    </image:image>
+
+    <!-- SHOWREELS 9:16 EN CLOUDFLARE STREAM / R2 -->
+    <!-- Video 1: Miniso 'Encuentra tu momento' -->
+    <video:video>
+      <video:thumbnail_loc>https://lmnagency.com/assets/images/stephanie/Portada%20Video%20Miniso.webp</video:thumbnail_loc>
+      <video:title>Stephanie Almeida - Miniso 'Encuentra tu momento'</video:title>
+      <video:description>Comercial publicitario vertical de comedia y lifestyle para la marca Miniso protagonizado por Stephanie Almeida.</video:description>
+      <video:content_loc>https://pub-c970afdabc634009b751fd9609b9149a.r2.dev/Video%20Miniso.mp4</video:content_loc>
+      <video:duration>30</video:duration>
+      <video:publication_date>2026-10-10T00:00:00+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+
+    <!-- Video 2: Telcel - iPhone 15 -->
+    <video:video>
+      <video:thumbnail_loc>https://lmnagency.com/assets/images/stephanie/Portada%20Telcel.webp</video:thumbnail_loc>
+      <video:title>Stephanie Almeida - Telcel iPhone 15</video:title>
+      <video:description>Anuncio comercial publicitario de Stephanie Almeida para Telcel presentando el iPhone.</video:description>
+      <video:content_loc>https://pub-c970afdabc634009b751fd9609b9149a.r2.dev/Telcel%20-%20Iphone.mp4</video:content_loc>
+      <video:duration>30</video:duration>
+      <video:publication_date>2026-10-10T00:00:00+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+
+    <!-- Video 3: Videoblog - Lifestyle -->
+    <video:video>
+      <video:thumbnail_loc>https://lmnagency.com/assets/images/stephanie/Portada%20Tik%20Tok.webp</video:thumbnail_loc>
+      <video:title>Stephanie Almeida - Videoblog Lifestyle en México</video:title>
+      <video:description>Vlog personal y dinámico en formato vertical 9:16 de Stephanie Almeida compartiendo vivencias cotidianas.</video:description>
+      <video:content_loc>https://pub-c970afdabc634009b751fd9609b9149a.r2.dev/Tik%20Tok%20Stephanie%20Almeida.mp4</video:content_loc>
+      <video:duration>52</video:duration>
+      <video:publication_date>2026-10-10T00:00:00+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+
+</urlset>
